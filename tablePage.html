@@ -22,8 +22,144 @@
   </head>
 
   <body>
-    <!-- Add your site or application content here -->
-    <p>Hello world! This is HTML5 Boilerplate.</p>
+
+    <!-- 1) Navigation bar: -->
+    <!-- This is the navbar made by Alex. Maybe we should make a separate
+      html for the navigation? -->
+    <header>
+      <div class="content-wrapper">
+        <nav class="navbar">
+          <ul>
+            <li><a href="https://www.chingu.io/" target="_blank">Chingu</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#search">Search</a></li>
+            <li><a href="#contact">Home</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <hr />
+
+    <!-- 2) Search bar: -->
+    <section class="section">
+      <div class="search-bar">
+        <input type="text" placeholder="Search" class="search-bar__input" />
+      </div>
+
+      <hr />
+
+      <!-- 3) Search tool bar: -->
+      <div class="search-tool">
+        <div class="search-tool__toggle">
+          <button class="search-tool__toggle btn">Chart View</button>
+        </div>
+        <div class="search-tool__name">
+          <button class="search-tool__name btn">Name</button>
+        </div>
+        <div class="search-tool__year-strike">
+          <button class="search-tool__name btn">Year Strike</button>
+        </div>
+        <div class="search-tool__meteor-compo">
+          <button class="search-tool__name btn">Meteorite Composition</button>
+        </div>
+        <div class="search-tool__mass-range">
+          <button class="search-tool__name btn">Masse Range</button>
+        </div>
+      </div>
+
+      <hr />
+
+      <!-- 4) Result table view: -->
+      <div class="result-table">
+        <table class="result-table__table">
+          <tr>
+            <th>Name</th>
+            <th>ID</th>
+            <th>Name Type</th>
+            <th>Recclass</th>
+            <th>Mass (g)</th>
+            <th>Fall</th>
+            <th>Year</th>
+            <th>Reclat</th>
+            <th>Reclong</th>
+            <th>GeoLocation</th>
+          </tr>
+          <tr>
+            <td>Aachen</td>
+            <td>1</td>
+            <td>Valid</td>
+            <td>L5</td>
+            <td>21</td>
+            <td>Fell</td>
+            <td>1880</td>
+            <td>50.775000</td>
+            <td>6.083330</td>
+            <td>"(50.775, 6.08333)"</td>
+          </tr>
+          <tr>
+            <td>Aarhus</td>
+            <td>2</td>
+            <td>Valid</td>
+            <td>H6</td>
+            <td>720</td>
+            <td>Fell</td>
+            <td>1951</td>
+            <td>56.183330</td>
+            <td>10.233330</td>
+            <td>"(56.18333, 10.23333)"</td>
+          </tr>
+          <tr>
+            <td>Abee</td>
+            <td>6</td>
+            <td>Valid</td>
+            <td>EH4</td>
+            <td>107000</td>
+            <td>Fell</td>
+            <td>1952</td>
+            <td>54.216670</td>
+            <td>-113.000000</td>
+            <td>"(54.21667, -113.0)"</td>
+          </tr>
+        </table>
+      </div>
+
+      <hr />
+
+      <!-- 5) Chart result view:  -->
+      <div class="result-chart">
+        <div class="result-chart__chart">
+          <!-- The chart can be done in Javascript (https://www.xul.fr/en/css/histogram.php) -->
+        </div>
+      </div>
+
+      <!-- 6) Result navigation bar: -->
+      <div class="result-tool-bar">
+        <div class="result-tool-bar__previous">
+          <button class="result-tool-bar__previous btn">Previous</button>
+        </div>
+        <div class="result-tool-bar__next">
+          <button class="result-tool-bar__next btn">Next</button>
+        </div>
+        <div class="result-tool-bar__clear">
+          <button class="result-tool-bar__clear btn">Clear</button>
+        </div>
+        <div class="result-tool-bar__desc">
+          <p class="result-tool-bar__desc p">
+            Showing meteorite strikes
+            <span class="result-tool-bar__desc--shown-strikes"
+              >[nbr of strikes on screen]</span
+            >
+            out of
+            <span class="result-tool-bar__desc--total-strikes"
+              >[total nbr of strikes]</span
+            >
+          </p>
+        </div>
+      </div>
+    </section>
+
     <script src="js/vendor/modernizr-3.11.2.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
