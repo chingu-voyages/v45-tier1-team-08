@@ -4,7 +4,7 @@
 
 * [Overview](#overview)
 * [General Instructions](#general-instructions)
-* [Requirements & Specifications](#requirements-specifications)
+* [Features](#features)
 * [Acknowledgements](#acknowledgements)
 * [About Chingu](#about-chingu)
 
