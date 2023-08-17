@@ -192,10 +192,7 @@ textarea {
    https://www.phpied.com/delay-loading-your-print-css/
    ========================================================================== */
 
-@media print {
-  *,
-  *::before,
-  *::after {
+
     background: #fff !important;
     color: #000 !important;
     /* Black prints faster */
