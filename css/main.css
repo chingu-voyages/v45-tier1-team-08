@@ -85,8 +85,14 @@ textarea {
 
 /* ==========================================================================
    Author's custom styles
-   ========================================================================== */
 
+   ========================================================================== */
+ul {
+  list-style-type: none;
+}
+body {
+  height: 100%;
+}
 /* ==========================================================================
    Helper classes
    ========================================================================== */
@@ -161,7 +167,7 @@ textarea {
 
 .clearfix::before,
 .clearfix::after {
-  content: " ";
+  content: ' ';
   display: table;
 }
 
@@ -209,20 +215,20 @@ textarea {
   }
 
   a[href]::after {
-    content: " (" attr(href) ")";
+    content: ' (' attr(href) ')';
   }
 
   abbr[title]::after {
-    content: " (" attr(title) ")";
+    content: ' (' attr(title) ')';
   }
 
   /*
    * Don't show links that are fragment identifiers,
    * or use the `javascript:` pseudo protocol
    */
-  a[href^="#"]::after,
-  a[href^="javascript:"]::after {
-    content: "";
+  a[href^='#']::after,
+  a[href^='javascript:']::after {
+    content: '';
   }
 
   pre {
@@ -260,4 +266,3 @@ textarea {
     page-break-after: avoid;
   }
 }
-
