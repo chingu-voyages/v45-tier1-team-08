@@ -24,40 +24,46 @@
   <body class="container">
     <!-- Add your site or application content here -->
     <header>
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <nav class="navbar" id="nav1">
         <div class="container-fluid">
-          <a class="navbar-brand" href="https://www.chingu.io/" target="_blank">Chingu</a>
+          <a class="navbar-brand white" href="https://www.chingu.io/" target="_blank">Chingu</a>
 
           <ul class="nav nav-underline justify-content-end">
             <li class="p-2 nav-item">
-              <a class="nav-link active" href="#home">Home</a>
+              <a class="nav-link active yellow" href="#home">Home</a>
             </li>
             <li class="p-2 nav-item">
-              <a class="nav-link" href="#about">About</a>
+              <a class="nav-link white" href="#about">About</a>
             </li>
             <li class="p-2 nav-item">
-              <a class="nav-link" href="#search">Search</a>
+              <a class="nav-link white" href="#search">Search</a>
             </li>
             <li class="p-2 nav-item">
-              <a class="nav-link" href="#contact">Home</a>
+              <a class="nav-link white" href="#contact">Home</a>
             </li>
           </ul>
         </div>
       </nav>
     </header>
 
-    <main class="text-center align-items-center ">
-        <div class="col-6 offset-md-3 mx-auto">
-          <h1 class="text-center">Meteors</h1>
-          <p class="text-start">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-            inventore adipisci vero ipsam harum enim voluptatum, cum, nobis,
-            quis distinctio dolorem molestiae ad quidem soluta nesciunt neque
-            optio eaque asperiores.
-          </p>
-          <button class="btn btn-primary" id="About-btn">Learn More</button>
+    <main class="text-center container d-flex h-75 mt-5 justify-content-center align-items-center">
+      <div class="row col-6 mt-5">
+        <h1 class="text-center white" id="meteor">Meteors</h1>
+        <p class="text-start white">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
+          inventore adipisci vero ipsam harum enim voluptatum, cum, nobis, quis
+          distinctio dolorem molestiae ad quidem soluta nesciunt neque optio
+          eaque asperiores.
+        </p>
+        <div class="d-grid gap-2 d-md-block">
+          <button class="btn btn-primary w-20" id="About-btn">
+            Learn More
+          </button>
         </div>
-      
+      </div>
+      <video id="background-video" autoplay="" loop="" muted="" poster="/meteor.9a851d89.jpeg">
+        <source src="/meteor.7ae559da.mp4" type="video/mp4">
+      </video>
     </main>
 
     <script src="/modernizr-3.11.2.min.659b9f56.js"></script>

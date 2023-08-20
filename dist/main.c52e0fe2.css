@@ -90,9 +90,41 @@ textarea {
 ul {
   list-style-type: none;
 }
-body {
-  height: 100%;
+#meteor {
+  font-size: 78px;
 }
+
+#background-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+#nav1 {
+  background: rgba(76, 175, 80, 0.1);
+  color: white;
+}
+.white {
+  color: white !important;
+}
+.yellow {
+  color: rgb(255, 255, 173) !important;
+}
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+* {
+  box-sizing: border-box;
+}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
