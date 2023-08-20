@@ -1,25 +1,3 @@
-import { data } from "../Team_Docs/Meteorite_Landings.js";
-
-// List of parameter values entered by the user (some examples):
-const searchValueList0 = { name: "ai" };
-const searchValueList1 = { massRange: [20, 22] };
-const searchValueList2 = {
-  name: "e",
-  recclass: "l-5",
-  massRange: [0, 5],
-};
-const searchValueList3 = {
-  year: 2000,
-  recclass: "LL36",
-  massRange: [],
-};
-const searchValueList4 = {
-  name: "a",
-  year: 1986,
-  massRange: [0, 20],
-};
-const searchValueList5 = { name: "acf", year: 1998 };
-
 const normalizeStr = (str) => {
   return str
     .normalize("NFD")
@@ -44,11 +22,7 @@ function searchData({ name = "", year = "", recclass = "", massRange = [] }) {
       });
 
   // 2. filter by year:
-  results = !year
-    ? results
-    : results.filter((item) => {
-        return item.year === year;
-      });
+  results = !year ? results : results.filter((item) => item.year === year);
 
   // 3. filter by composition (recclass):
   results = !recclass
@@ -73,12 +47,3 @@ function searchData({ name = "", year = "", recclass = "", massRange = [] }) {
   // 5.return found results, or entire dataset:
   return results.length === 0 ? data : results;
 }
-
-// Testing:
-
-// console.log(searchData(searchValueList0));
-// console.log(searchData(searchValueList1));
-// console.log(searchData(searchValueList2));
-// console.log(searchData(searchValueList3));
-// console.log(searchData(searchValueList4));
-// console.log(searchData(searchValueList5));
