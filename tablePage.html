@@ -16,13 +16,12 @@
     <!-- Place favicon.ico in the root directory -->
 
     <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/tablePage.css" />
 
     <meta name="theme-color" content="#fafafa" />
   </head>
 
   <body>
-
     <!-- 1) Navigation bar: -->
     <!-- This is the navbar made by Alex. Maybe we should make a separate
       html for the navigation? -->
@@ -45,7 +44,12 @@
     <!-- 2) Search bar: -->
     <section class="section">
       <div class="search-bar">
-        <input type="text" placeholder="Search" class="search-bar__input" />
+        <input
+          type="text"
+          id="myInput"
+          placeholder="Search"
+          class="search-bar__input"
+        />
       </div>
 
       <hr />
@@ -72,57 +76,8 @@
       <hr />
 
       <!-- 4) Result table view: -->
-      <div class="result-table">
-        <table class="result-table__table">
-          <tr>
-            <th>Name</th>
-            <th>ID</th>
-            <th>Name Type</th>
-            <th>Recclass</th>
-            <th>Mass (g)</th>
-            <th>Fall</th>
-            <th>Year</th>
-            <th>Reclat</th>
-            <th>Reclong</th>
-            <th>GeoLocation</th>
-          </tr>
-          <tr>
-            <td>Aachen</td>
-            <td>1</td>
-            <td>Valid</td>
-            <td>L5</td>
-            <td>21</td>
-            <td>Fell</td>
-            <td>1880</td>
-            <td>50.775000</td>
-            <td>6.083330</td>
-            <td>"(50.775, 6.08333)"</td>
-          </tr>
-          <tr>
-            <td>Aarhus</td>
-            <td>2</td>
-            <td>Valid</td>
-            <td>H6</td>
-            <td>720</td>
-            <td>Fell</td>
-            <td>1951</td>
-            <td>56.183330</td>
-            <td>10.233330</td>
-            <td>"(56.18333, 10.23333)"</td>
-          </tr>
-          <tr>
-            <td>Abee</td>
-            <td>6</td>
-            <td>Valid</td>
-            <td>EH4</td>
-            <td>107000</td>
-            <td>Fell</td>
-            <td>1952</td>
-            <td>54.216670</td>
-            <td>-113.000000</td>
-            <td>"(54.21667, -113.0)"</td>
-          </tr>
-        </table>
+      <div id="result-table">
+        <table id="myTable"></table>
       </div>
 
       <hr />
@@ -162,7 +117,7 @@
 
     <script src="js/vendor/modernizr-3.11.2.min.js"></script>
     <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/tablePage.js"></script>
 
     <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
     <script>
