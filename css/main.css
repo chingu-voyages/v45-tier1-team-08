@@ -85,7 +85,45 @@ textarea {
 
 /* ==========================================================================
    Author's custom styles
+
    ========================================================================== */
+ul {
+  list-style-type: none;
+}
+#meteor {
+  font-size: 78px;
+}
+
+#background-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+#nav1 {
+  background: rgba(76, 175, 80, 0.1);
+  color: white;
+}
+.white {
+  color: white !important;
+}
+.yellow {
+  color: rgb(255, 255, 173) !important;
+}
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+* {
+  box-sizing: border-box;
+}
 
 /* ==========================================================================
    Helper classes
@@ -161,7 +199,7 @@ textarea {
 
 .clearfix::before,
 .clearfix::after {
-  content: " ";
+  content: ' ';
   display: table;
 }
 
@@ -209,20 +247,20 @@ textarea {
   }
 
   a[href]::after {
-    content: " (" attr(href) ")";
+    content: ' (' attr(href) ')';
   }
 
   abbr[title]::after {
-    content: " (" attr(title) ")";
+    content: ' (' attr(title) ')';
   }
 
   /*
    * Don't show links that are fragment identifiers,
    * or use the `javascript:` pseudo protocol
    */
-  a[href^="#"]::after,
-  a[href^="javascript:"]::after {
-    content: "";
+  a[href^='#']::after,
+  a[href^='javascript:']::after {
+    content: '';
   }
 
   pre {
@@ -260,4 +298,3 @@ textarea {
     page-break-after: avoid;
   }
 }
-

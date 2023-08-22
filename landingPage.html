@@ -17,37 +17,71 @@
 
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/main.css" />
-
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
     <meta name="theme-color" content="#fafafa" />
   </head>
 
-  <body>
+  <body class="container">
     <!-- Add your site or application content here -->
     <header>
-      <div class="content-wrapper">
-        <nav class="navbar">
-          <ul>
-            <li><a href="https://www.chingu.io/" target="_blank">Chingu</a></li>
-            <li><a href="landingPage.html">Home</a></li>
-            <li><a href="aboutPage.html">About</a></li>
-            <li><a href="tablePage.html">Data</a></li>
-            <li><a href="contactPage.html">Contact</a></li>
+      <nav class="navbar" id="nav1">
+        <div class="container-fluid">
+          <a
+            class="navbar-brand white"
+            href="https://www.chingu.io/"
+            target="_blank"
+            >Chingu</a
+          >
+
+          <ul class="nav nav-underline justify-content-end">
+            <li class="p-2 nav-item">
+              <a class="nav-link active yellow" href="landingPage.html">Home</a>
+            </li>
+            <li class="p-2 nav-item">
+              <a class="nav-link white" href="aboutPage.html">About</a>
+            </li>
+            <li class="p-2 nav-item">
+              <a class="nav-link white" href="tablePage.html">Search</a>
+            </li>
+            <li class="p-2 nav-item">
+              <a class="nav-link white" href="contactPage.html">Home</a>
+            </li>
           </ul>
-        </nav>
-      </div>
+        </div>
+      </nav>
     </header>
 
-    <main>
-      <div class="title">
-        <h1>Meteors</h1>
-        <p>
+    <main
+      class="text-center container d-flex h-75 mt-5 justify-content-center align-items-center"
+    >
+      <div class="row col-6 mt-5">
+        <h1 class="text-center white" id="meteor">Meteors</h1>
+        <p class="text-start white">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
           inventore adipisci vero ipsam harum enim voluptatum, cum, nobis, quis
           distinctio dolorem molestiae ad quidem soluta nesciunt neque optio
           eaque asperiores.
         </p>
+        <div class="d-grid gap-2 d-md-block">
+          <button class="btn btn-primary w-20" id="About-btn">
+            Learn More
+          </button>
+        </div>
       </div>
-      <button id="About-btn">Learn More</button>
+      <video
+        id="background-video"
+        autoplay
+        loop
+        muted
+        poster="/img/meteor.jpeg"
+      >
+        <source src="meteor.mp4" type="video/mp4" />
+      </video>
     </main>
 
     <script src="js/vendor/modernizr-3.11.2.min.js"></script>
@@ -61,11 +95,16 @@
       };
       ga.q = [];
       ga.l = +new Date();
-      ga("create", "UA-XXXXX-Y", "auto");
-      ga("set", "anonymizeIp", true);
-      ga("set", "transport", "beacon");
-      ga("send", "pageview");
+      ga('create', 'UA-XXXXX-Y', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('set', 'transport', 'beacon');
+      ga('send', 'pageview');
     </script>
     <script src="https://www.google-analytics.com/analytics.js" async></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
