@@ -10,9 +10,10 @@ const headers = Object.keys(dataFile[0]);
 console.log(headers);
 //Create array of <th> elemnets for table
 const headerRow = headers.map((header) => {
-  return `<th>${header}</th>`;
+  return `
+  <th>${header}</th>`;
 });
-
+console.log(headerRow);
 // insert array of <th> into <thead>
 table.querySelector("thead").innerHTML = headerRow.join("");
 
@@ -33,7 +34,7 @@ const rows = dataFile.map((data) => {
 });
 
 // insert array of <tr> elements into table
-table.innerHTML = rows.join("");
+table.querySelector("tbody").innerHTML = rows.join("");
 
 // the json dataFile.
 // Extract value from table header.
