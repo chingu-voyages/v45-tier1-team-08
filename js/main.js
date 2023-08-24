@@ -14,6 +14,7 @@ const filteredHeaders = Object.keys(dataFile[0]).filter((key) =>
 );
 console.log(filteredHeaders);
 
+// reorder headers for table
 const headers = keyHeaders.map((key) => filteredHeaders.find((k) => k === key));
 
 //Create array of <th> elemnets for table
