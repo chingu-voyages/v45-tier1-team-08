@@ -124,6 +124,14 @@ html {
 * {
   box-sizing: border-box;
 }
+@media (max-width: 425px) {
+  #meteor {
+    font-size: 2em;
+  }
+  ul {
+    flex-direction: column;
+  }
+}
 
 /* ==========================================================================
    Helper classes
