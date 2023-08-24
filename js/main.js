@@ -5,9 +5,17 @@ console.log(dataFile);
 //select table elemnt in the DOM
 const table = document.getElementById("showData");
 
+//list of specific keys to extract
+const keyHeaders = ["name", "year", "recclass", "mass_g"];
+
 //Gather array of object keys (headers for table)
-const headers = Object.keys(dataFile[0]);
-console.log(headers);
+const filteredHeaders = Object.keys(dataFile[0]).filter((key) =>
+  keyHeaders.includes(key)
+);
+console.log(filteredHeaders);
+
+const headers = keyHeaders.map((key) => filteredHeaders.find((k) => k === key));
+
 //Create array of <th> elemnets for table
 const headerRow = headers.map((header) => {
   return `
@@ -21,15 +29,9 @@ table.querySelector("thead").innerHTML = headerRow.join("");
 const rows = dataFile.map((data) => {
   return `<tr>
     <td>${data.name}</td>
-    <td>${data.id}</td>
-    <td>${data.nametype}</td>
+    <td>${data.year}</td>
     <td>${data.recclass}</td>
     <td>${data.mass_g}</td>
-    <td>${data.fall}</td>
-    <td>${data.year}</td>
-    <td>${data.reclat}</td>
-    <td>${data.reclong}</td>
-    <td>${data.GeoLocation}</td>
   </tr>`;
 });
 
