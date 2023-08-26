@@ -1,3 +1,5 @@
+import { data } from "../Team_Docs/Meteorite_Landings.js";
+
 const normalizeStr = (str) => {
   return str
     .normalize("NFD")
@@ -7,7 +9,12 @@ const normalizeStr = (str) => {
     .toLowerCase();
 };
 
-function searchData({ name = "", year = "", recclass = "", massRange = [] }) {
+export function searchData({
+  name = "",
+  year = "",
+  recclass = "",
+  massRange = [],
+}) {
   let results = data;
 
   // 1. filter by name:
@@ -45,5 +52,6 @@ function searchData({ name = "", year = "", recclass = "", massRange = [] }) {
         );
 
   // 5.return found results, or entire dataset:
+  console.log(results);
   return results.length === 0 ? data : results;
 }
