@@ -17,14 +17,13 @@
 
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/searchBox.css" />
 
     <meta name="theme-color" content="#fafafa" />
   </head>
 
   <body>
     <!-- 1) Navigation bar: -->
-    <!-- This is the navbar made by Alex. Maybe we should make a separate
-      html for the navigation? -->
     <header>
       <div class="content-wrapper">
         <nav class="navbar">
@@ -43,42 +42,101 @@
 
     <!-- 2) Search bar: -->
     <section class="section">
-      <div class="search-bar">
-        <input type="text" placeholder="Search" class="search-bar__input" />
-      </div>
-
-      <hr />
-
-      <!-- 3) Search tool bar: -->
       <div class="search-tool">
-        <div class="search-tool__toggle">
-          <button class="search-tool__toggle btn">Chart View</button>
+        <!-- 2.1) Search selection buttons: -->
+        <div class="search-tool__selection">
+          <div>
+            <input
+              type="checkbox"
+              id="name-checkbox"
+              name="selection"
+              value="name"
+              checked
+            />
+            <label for="name-checkbox">Name</label><br />
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              id="yearStrike-checkbox"
+              name="selection"
+              value="yearStrike"
+            />
+            <label for="yearStrike-checkbox">Year Strike</label><br />
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              id="composition-checkbox"
+              name="selection"
+              value="composition"
+            />
+            <label for="composition-checkbox">Composition</label><br />
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              id="mass-checkbox"
+              name="selection"
+              value="mass"
+            />
+            <label for="mass-checkbox">Mass</label><br />
+          </div>
         </div>
-        <div class="search-tool__name">
-          <button class="search-tool__name btn">Name</button>
-        </div>
-        <div class="search-tool__year-strike">
-          <button class="search-tool__year-strike btn">Year Strike</button>
-        </div>
-        <div class="search-tool__meteor-compo">
-          <button class="search-tool__meteor-compo btn">
-            Meteorite Composition
-          </button>
-        </div>
-        <div class="search-tool__mass-range">
-          <button class="search-tool__mass-range btn">Masse Range</button>
+
+        <!-- 2.2) Search tool bars: -->
+        <div class="search-tool__bar">
+          <div class="search-tool__forms">
+            <form class="search-tool__form">
+              <input
+                class="searchTerm"
+                placeholder="Name…"
+                autocomplete="off"
+              />
+              <input type="submit" class="searchBtn" value="GO" />
+              <ul class="suggestionBox"></ul>
+            </form>
+
+            <form class="search-tool__form">
+              <input
+                class="searchTerm"
+                placeholder="Year strike…"
+                autocomplete="off"
+              />
+              <input type="submit" class="searchBtn" value="GO" />
+              <ul class="suggestionBox"></ul>
+            </form>
+
+            <form class="search-tool__form">
+              <input
+                class="searchTerm"
+                placeholder="Composition…"
+                autocomplete="off"
+              />
+              <input type="submit" class="searchBtn" value="GO" />
+              <ul class="suggestionBox"></ul>
+            </form>
+
+            <form class="search-tool__form collapsed">
+              <input
+                class="searchTerm"
+                placeholder="Mass…"
+                autocomplete="off"
+              />
+              <input type="submit" class="searchBtn" value="GO" />
+              <ul class="suggestionBox"></ul>
+            </form>
+          </div>
+          <hr />
+          <div class="search-tool__toggle">
+            <button class="search-tool__toggle btn">Chart View</button>
+          </div>
         </div>
       </div>
 
-      <form>
-        <div class="search-tool__submit">
-          <button class="search-tool__submit btn">Submit</button>
-        </div>
-      </form>
-
       <hr />
 
-      <!-- 4) Result table view: -->
+      <!-- 3) Result table view: -->
       <div class="result-table">
         <table id="showData">
           <thead></thead>
@@ -88,14 +146,14 @@
 
       <hr />
 
-      <!-- 5) Chart result view:  -->
+      <!-- 4) Chart result view:  -->
       <div class="result-chart">
         <div class="result-chart__chart">
           <!-- The chart can be done in Javascript (https://www.xul.fr/en/css/histogram.php) -->
         </div>
       </div>
 
-      <!-- 6) Result navigation bar: -->
+      <!-- 5) Result navigation bar: -->
       <div class="result-tool-bar">
         <div class="result-tool-bar__previous">
           <button class="result-tool-bar__previous btn">Previous</button>
