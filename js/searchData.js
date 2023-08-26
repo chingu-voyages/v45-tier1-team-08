@@ -52,6 +52,5 @@ export function searchData({
         );
 
   // 5.return found results, or entire dataset:
-  console.log(results);
   return results.length === 0 ? data : results;
 }

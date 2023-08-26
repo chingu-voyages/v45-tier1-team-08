@@ -1,3 +1,37 @@
+import { searchData } from "./searchData.js";
+
+
+// List of parameter values entered by the user (some examples):
+const searchValueList0 = { name: "ai" };
+const searchValueList1 = { massRange: [20, 22] };
+const searchValueList2 = {
+  name: "e",
+  recclass: "l-5",
+  massRange: [0, 5],
+};
+const searchValueList3 = {
+  year: 2000,
+  recclass: "LL36",
+  massRange: [],
+};
+const searchValueList4 = {
+  name: "a",
+  year: 1986,
+  massRange: [0, 20],
+};
+const searchValueList5 = { name: "acf", year: 1998 }; // this will return all the dataset
+
+
+// Conversion of searchData results to a list of GSP coordinates:
+const resultsCoords = searchData(searchValueList0)
+  .filter((result) => result.GeoLocation !== "")
+  .map((result) => {
+    return { long: result.reclong, lat: result.reclat };
+  });
+
+console.log(searchData(searchValueList3));
+console.log(resultsCoords);
+
 // I am using this as reference for the map: https://d3-graph-gallery.com/graph/bubblemap_leaflet_basic.html
 
 var map = L.map("map").setView([40.7448855, -74.0131188], 1); //position of the element in the HTML will depends on the element given - here, an id selected div called "map"; the second argument of setView is the zoom level
@@ -12,14 +46,7 @@ L.tileLayer("https://tile.openstreetmap.fr/hot/{z}/{x}/{y}.png", {
 L.svg().addTo(map);
 
 // Create data for circles:
-var markers = [
-  { long: 9.083, lat: 42.149 }, // corsica
-  { long: 7.26, lat: 43.71 }, // nice
-  { long: 2.349, lat: 48.864 }, // Paris
-  { long: -1.397, lat: 43.664 }, // Hossegor
-  { long: 3.075, lat: 50.64 }, // Lille
-  { long: -3.83, lat: 48 }, // Morlaix
-];
+var markers = resultsCoords;
 
 // Select the svg area and add circles:
 d3.select("#map")
