@@ -18,6 +18,12 @@
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/searchBox.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
 
     <meta name="theme-color" content="#fafafa" />
   </head>
@@ -148,9 +154,10 @@
 
       <!-- 4) Chart result view:  -->
       <div class="result-chart">
-        <div class="result-chart__chart">
-          <!-- The chart can be done in Javascript (https://www.xul.fr/en/css/histogram.php) -->
-        </div>
+        <div
+        id="map"
+        style="width: 90vh; height: 80vh; background-color: blanchedalmond"
+      ></div>
       </div>
 
       <!-- 5) Result navigation bar: -->
@@ -181,6 +188,17 @@
 
     <script src="js/vendor/modernizr-3.11.2.min.js"></script>
     <script src="js/plugins.js"></script>
+    <!-- Load d3.js and the geo projection plugin -->
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+    <!-- Load Leaflet js script -->
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script type="module" src="js/searchData.js"></script>
+    <script type="module" src="js/displayMap.js"></script>
     <script type="module" src="js/main.js"></script>
     <script type="module" src="Team_Docs/testData.js"></script>
 
