@@ -1,0 +1,15 @@
+body {
+    background-color: rgb(51, 100, 51);
+}
+h1 {
+    text-align: center;
+    color:rgb(227, 194, 102);
+}
+
+div svg {
+    text-align: center;
+}
+
+.bar-chart {
+    background-color: #350b64;
+}
