@@ -128,7 +128,12 @@ html {
   #meteor {
     font-size: 2em;
   }
+  nav div {
+    display: flex;
+    flex-direction: column;
+  }
   ul {
+    display: flex;
     flex-direction: column;
   }
 }
