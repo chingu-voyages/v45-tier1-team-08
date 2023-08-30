@@ -14,8 +14,8 @@ body {
   align-items: center;
 }
 
-.search-tool__forms{
-    display: flex;
+.search-tool__forms {
+  display: flex;
   align-items: center;
   justify-content: space-evenly;
 }
