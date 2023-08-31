@@ -1,5 +1,18 @@
 import { data } from '../Team_Docs/Meteorite_Landings.js';
-import { linkData } from './searchLink.js';
+const searchButtons = document.getElementsByClassName('searchBtn');
+const searchTerms = document.getElementsByClassName('searchTerm');
+let linkData = [];
+
+export function fetchData(e) {
+  Array.from(searchTerms).map((elem) => {
+    linkData.push(elem.value);
+  });
+}
+
+Array.from(searchButtons).map((elem) => {
+  elem.addEventListener('click', fetchData);
+});
+console.log(linkData);
 const normalizeStr = (str) => {
   return str
     .normalize('NFD')
@@ -8,7 +21,7 @@ const normalizeStr = (str) => {
     .replaceAll(' ', '') // ignore white spaces
     .toLowerCase();
 };
-console.log(linkData);
+
 export function searchData({
   name = '',
   year = '',
