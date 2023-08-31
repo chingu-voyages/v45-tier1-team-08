@@ -1,16 +1,15 @@
-import { data as dataFile } from "/Team_Docs/testData.js";
+import { data as dataFile } from '/Team_Docs/testData.js';
 
 //select table elemnt in the DOM
-const table = document.getElementById("showData");
+const table = document.getElementById('showData');
 
 //list of specific keys to extract
-const keyHeaders = ["name", "year", "recclass", "mass_g"];
+const keyHeaders = ['name', 'year', 'recclass', 'mass_g'];
 
 //Gather array of object keys (headers for table)
 const filteredHeaders = Object.keys(dataFile[0]).filter((key) =>
   keyHeaders.includes(key)
 );
-console.log(filteredHeaders);
 
 // reorder headers for table
 const headers = keyHeaders.map((key) => filteredHeaders.find((k) => k === key));
@@ -35,7 +34,7 @@ const rows = dataFile.map((data) => {
 });
 
 // insert array of <tr> elements into table
-table.querySelector("tbody").innerHTML = rows.join("");
+table.querySelector('tbody').innerHTML = rows.join('');
 
 // $("table > tbody > tr").hide().slice(0, 15).show();
 function sortTable(n) {
@@ -48,10 +47,10 @@ function sortTable(n) {
     shouldSwitch,
     dir,
     switchcount = 0;
-  table = document.getElementById("showData");
+  table = document.getElementById('showData');
   switching = true;
   // Set the sorting direction to ascending:
-  dir = "asc";
+  dir = 'asc';
   /* Make a loop that will continue until
   no switching has been done: */
   while (switching) {
@@ -65,17 +64,17 @@ function sortTable(n) {
       shouldSwitch = false;
       /* Get the two elements you want to compare,
       one from current row and one from the next: */
-      x = rows[i].getElementsByTagName("td")[n];
-      y = rows[i + 1].getElementsByTagName("td")[n];
+      x = rows[i].getElementsByTagName('td')[n];
+      y = rows[i + 1].getElementsByTagName('td')[n];
       /* Check if the two rows should switch place,
       based on the direction, asc or desc: */
-      if (dir == "asc") {
+      if (dir == 'asc') {
         if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
           // If so, mark as a switch and break the loop:
           shouldSwitch = true;
           break;
         }
-      } else if (dir == "desc") {
+      } else if (dir == 'desc') {
         if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
           // If so, mark as a switch and break the loop:
           shouldSwitch = true;
@@ -93,8 +92,8 @@ function sortTable(n) {
     } else {
       /* If no switching has been done AND the direction is "asc",
       set the direction to "desc" and run the while loop again. */
-      if (switchcount == 0 && dir == "asc") {
-        dir = "desc";
+      if (switchcount == 0 && dir == 'asc') {
+        dir = 'desc';
         switching = true;
       }
     }

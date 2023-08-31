@@ -1,18 +1,21 @@
-import { data } from '../Team_Docs/Meteorite_Landings.js';
+import { data } from '/Team_Docs/Meteorite_Landings.js';
 const searchButtons = document.getElementsByClassName('searchBtn');
 const searchTerms = document.getElementsByClassName('searchTerm');
 let linkData = [];
 
 export function fetchData(e) {
+  e.preventDefault();
+  linkData = [];
   Array.from(searchTerms).map((elem) => {
     linkData.push(elem.value);
   });
+  console.log(linkData);
 }
 
 Array.from(searchButtons).map((elem) => {
   elem.addEventListener('click', fetchData);
 });
-console.log(linkData);
+
 const normalizeStr = (str) => {
   return str
     .normalize('NFD')
