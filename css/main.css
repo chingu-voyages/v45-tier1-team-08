@@ -90,6 +90,7 @@ textarea {
 ul {
   list-style-type: none;
 }
+
 #meteor {
   font-size: 78px;
 }
@@ -105,25 +106,31 @@ ul {
   bottom: 0;
   z-index: -1;
 }
+
 #nav1 {
   background: rgba(76, 175, 80, 0.1);
   color: white;
 }
+
 .white {
   color: white !important;
 }
+
 .yellow {
   color: rgb(255, 255, 173) !important;
 }
+
 body,
 html {
   margin: 0;
   padding: 0;
   height: 100vh;
 }
+
 * {
   box-sizing: border-box;
 }
+
 
 /* ==========================================================================
    Helper classes
@@ -218,9 +225,9 @@ html {
 }
 
 @media print,
-  (-webkit-min-device-pixel-ratio: 1.25),
-  (min-resolution: 1.25dppx),
-  (min-resolution: 120dpi) {
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 1.25dppx),
+(min-resolution: 120dpi) {
   /* Style adjustments for high resolution devices */
 }
 
@@ -231,6 +238,7 @@ html {
    ========================================================================== */
 
 @media print {
+
   *,
   *::before,
   *::after {

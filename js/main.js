@@ -1,4 +1,4 @@
-import { data as dataFile } from "/Team_Docs/testData.js";
+import { data as dataFile } from "/Team_Docs/Meteorite_Landings.js";
 
 console.log(dataFile);
 
@@ -39,41 +39,4 @@ const rows = dataFile.map((data) => {
 // insert array of <tr> elements into table
 table.querySelector("tbody").innerHTML = rows.join("");
 
-// the json dataFile.
-// Extract value from table header.
-// let col = [];
-// for (let i = 0; i < dataFile.length; i++) {
-//   for (let key in dataFile[i]) {
-//     if (col.indexOf(key) === -1) {
-//       col.push(key);
-//     }
-//   }
-// }
-
-// Create a table.
-// const table = document.createElement("table");
-
-// // Create table header row using the extracted headers above.
-// let tr = table.insertRow(-1); // table row.
-
-// for (let i = 0; i < col.length; i++) {
-//   let th = document.createElement("th"); // table header.
-//   th.innerHTML = col[i];
-//   tr.appendChild(th);
-// }
-
-// // add json dataFile to the table as rows.
-// for (let i = 0; i < dataFile.length; i++) {
-//   tr = table.insertRow(-1);
-
-//   for (let j = 0; j < col.length; j++) {
-//     let tabCell = tr.insertCell(-1);
-//     tabCell.innerHTML = dataFile[i][col[j]];
-//   }
-// }
-
-// Now, add the newly created table with json dataFile, to a container.
-// const divShowData = document.getElementById("showData");
-// dataFile.forEach(element => divShowData.appendChild(element)
-// // divShowData.innerHTML = "";
-// divShowData.appendChild(table);
+// $("table > tbody > tr").hide().slice(0, 15).show();
