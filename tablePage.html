@@ -66,6 +66,8 @@
               <form class="search-tool__form">
                 <input
                   class="searchTerm"
+                  type="number"
+                  min="1880"
                   placeholder="Year strike…"
                   autocomplete="off"
                 />
@@ -86,7 +88,20 @@
               <form class="search-tool__form collapsed">
                 <input
                   class="searchTerm"
-                  placeholder="Mass…"
+                  type="number"
+                  min="0"
+                  placeholder="Min Mass..."
+                  autocomplete="off"
+                />
+                <input type="submit" class="searchBtn" value="GO" />
+                <ul class="suggestionBox"></ul>
+              </form>
+              <form class="search-tool__form collapsed">
+                <input
+                  type="number"
+                  min="0"
+                  class="searchTerm"
+                  placeholder="Max Mass..."
                   autocomplete="off"
                 />
                 <input type="submit" class="searchBtn" value="GO" />
@@ -174,10 +189,10 @@
       };
       ga.q = [];
       ga.l = +new Date();
-      ga('create', 'UA-XXXXX-Y', 'auto');
-      ga('set', 'anonymizeIp', true);
-      ga('set', 'transport', 'beacon');
-      ga('send', 'pageview');
+      ga("create", "UA-XXXXX-Y", "auto");
+      ga("set", "anonymizeIp", true);
+      ga("set", "transport", "beacon");
+      ga("send", "pageview");
     </script>
     <script src="https://www.google-analytics.com/analytics.js" async></script>
   </body>
