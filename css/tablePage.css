@@ -286,6 +286,10 @@ td {
   border: 1px solid;
 }
 
+th {
+  cursor: pointer;
+}
+
 th,
 td {
   padding: 5px;
