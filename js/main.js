@@ -1,7 +1,5 @@
 import { data as dataFile } from "/Team_Docs/testData.js";
 
-console.log(dataFile);
-
 //select table elemnt in the DOM
 const table = document.getElementById("showData");
 
@@ -18,13 +16,13 @@ console.log(filteredHeaders);
 const headers = keyHeaders.map((key) => filteredHeaders.find((k) => k === key));
 
 //Create array of <th> elemnets for table
-const headerRow = headers.map((header) => {
-  return `
-  <th>${header}</th>`;
-});
-console.log(headerRow);
+// const headerRow = headers.map((header) => {
+//   return `
+//   <th>${header}</th>`;
+// });
+// console.log(headerRow);
 // insert array of <th> into <thead>
-table.querySelector("thead").innerHTML = headerRow.join("");
+// table.querySelector("thead").innerHTML = headerRow.join("");
 
 //creat array pf <tr> elements for table
 const rows = dataFile.map((data) => {
@@ -39,41 +37,66 @@ const rows = dataFile.map((data) => {
 // insert array of <tr> elements into table
 table.querySelector("tbody").innerHTML = rows.join("");
 
-// the json dataFile.
-// Extract value from table header.
-// let col = [];
-// for (let i = 0; i < dataFile.length; i++) {
-//   for (let key in dataFile[i]) {
-//     if (col.indexOf(key) === -1) {
-//       col.push(key);
-//     }
-//   }
-// }
-
-// Create a table.
-// const table = document.createElement("table");
-
-// // Create table header row using the extracted headers above.
-// let tr = table.insertRow(-1); // table row.
-
-// for (let i = 0; i < col.length; i++) {
-//   let th = document.createElement("th"); // table header.
-//   th.innerHTML = col[i];
-//   tr.appendChild(th);
-// }
-
-// // add json dataFile to the table as rows.
-// for (let i = 0; i < dataFile.length; i++) {
-//   tr = table.insertRow(-1);
-
-//   for (let j = 0; j < col.length; j++) {
-//     let tabCell = tr.insertCell(-1);
-//     tabCell.innerHTML = dataFile[i][col[j]];
-//   }
-// }
-
-// Now, add the newly created table with json dataFile, to a container.
-// const divShowData = document.getElementById("showData");
-// dataFile.forEach(element => divShowData.appendChild(element)
-// // divShowData.innerHTML = "";
-// divShowData.appendChild(table);
+// $("table > tbody > tr").hide().slice(0, 15).show();
+function sortTable(n) {
+  var table,
+    rows,
+    switching,
+    i,
+    x,
+    y,
+    shouldSwitch,
+    dir,
+    switchcount = 0;
+  table = document.getElementById("showData");
+  switching = true;
+  // Set the sorting direction to ascending:
+  dir = "asc";
+  /* Make a loop that will continue until
+  no switching has been done: */
+  while (switching) {
+    // Start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /* Loop through all table rows (except the
+    first, which contains table headers): */
+    for (i = 1; i < rows.length - 1; i++) {
+      // Start by saying there should be no switching:
+      shouldSwitch = false;
+      /* Get the two elements you want to compare,
+      one from current row and one from the next: */
+      x = rows[i].getElementsByTagName("td")[n];
+      y = rows[i + 1].getElementsByTagName("td")[n];
+      /* Check if the two rows should switch place,
+      based on the direction, asc or desc: */
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          // If so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          // If so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      /* If a switch has been marked, make the switch
+      and mark that a switch has been done: */
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      // Each time a switch is done, increase this count by 1:
+      switchcount++;
+    } else {
+      /* If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again. */
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}

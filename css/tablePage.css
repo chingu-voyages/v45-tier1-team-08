@@ -87,49 +87,219 @@ textarea {
    Author's custom styles
 
    ========================================================================== */
-ul {
-  list-style-type: none;
+body {
+  background-color: lightgray;
 }
 
-#meteor {
-  font-size: 78px;
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-#background-video {
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  position: fixed;
+.search-tool__selection {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.search-tool__bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-tool__forms {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.search-tool__form,
+.collapsed {
+  width: 500px;
+  margin: 20px;
+  width: 230px;
+  position: relative;
+  background-color: #e0e0e0;
+  padding: 20px;
+  float: left;
+  height: 30px;
+  box-shadow: -8px 8px 20px -6px #000;
+  border-radius: 5px;
+  transition: height 0.5s ease;
+}
+
+.expanded {
+  height: 160px;
+}
+
+.result-table {
+  display: flex;
+  max-height: 40%;
+  overflow: scroll;
+  position: relative;
+  border: 1px solid black;
+}
+
+.result-chart {
+  display: flex;
+  align-items: center;
+}
+
+#map {
+  width: 90vh;
+  height: 80vh;
+  background-color: blanchedalmond;
+}
+
+/* ==========================
+     Search Box
+     ========================== */
+
+.searchTerm:focus {
+  width: 175px;
+  background-color: #fff;
+  color: #000;
+  opacity: 1;
+  box-shadow: 1px 1px 9px rgba(0, 0, 0, 0.85);
+  font-weight: 800;
+}
+
+.searchTerm {
+  padding: 5px 10px;
+  background: #ccc;
+  color: #444;
+  border: 0;
+  width: 150px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.65);
+  outline: 0;
+}
+
+.searchBtn {
+  border: 0;
+  position: absolute;
+  width: 38px;
+  cursor: pointer;
+  margin: 2px -38px;
+  border-left: 2px solid skyblue;
+  height: 26px;
+  font-weight: 900;
+  font-size: 12px;
+  background-color: #f6f5ef;
+  color: #009f8a;
+  border-radius: 0px 5px 5px 0px;
+}
+
+/* ==========================
+     tooltip/hover popup
+     ========================== */
+
+.suggestionBox {
+  display: none;
+  background-color: white;
+  color: #3b3835;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-top: 0;
+  float: left;
   left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  z-index: -1;
+  list-style: none;
+  margin: 20px;
+  padding: 8px;
+  position: absolute;
+  top: 31px;
+  width: 180px;
+  z-index: 1000;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
 }
 
-#nav1 {
-  background: rgba(76, 175, 80, 0.1);
+.suggestionBox:before {
+  content: "";
+  display: inline-block;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #fff;
+  position: absolute;
+  top: -7px;
+  left: 9px;
+}
+
+.search-tool__form:nth-child(2) {
+  background-color: #fff;
+}
+
+.search-tool__form:nth-child(2) .suggestionBox {
+  background: skyblue;
   color: white;
 }
 
-.white {
-  color: white !important;
+.search-tool__form:nth-child(2) .suggestionBox::before {
+  border-bottom: 7px solid skyblue;
 }
 
-.yellow {
-  color: rgb(255, 255, 173) !important;
+.search-tool__form:nth-child(3) {
+  background-color: gray;
 }
 
-body,
-html {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
+.search-tool__form:nth-child(3) .suggestionBox {
+  background: beige;
+  color: black;
 }
 
-* {
-  box-sizing: border-box;
+.search-tool__form:nth-child(3) .suggestionBox::before {
+  border-bottom: 7px solid beige;
 }
+
+.search-tool__form:nth-child(4) {
+  background-color: #333;
+}
+
+.search-tool__form:nth-child(4) .suggestionBox {
+  background: #859ce6;
+  color: white;
+}
+
+.search-tool__form:nth-child(4) .suggestionBox::before {
+  border-bottom: 7px solid #859ce6;
+}
+
+/* ==========================
+     Table Body
+     ========================== */
+
+table {
+  width: 70%;
+  margin: 20px auto;
+  table-layout: fixed;
+  border-collapse: collapse;
+  background-color: white;
+  ;
+}
+
+table,
+th,
+td {
+  border: 1px solid;
+}
+
+th,
+td {
+  padding: 5px;
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background-color: lightblue;
+}
+
+tr:hover {
+  background-color: aquamarine;
+}
+
 
 
 /* ==========================================================================
