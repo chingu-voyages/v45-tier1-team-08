@@ -1,4 +1,4 @@
-import { data as dataFile } from "/Team_Docs/testData.js";
+import { data as dataFile } from "/Team_Docs/Meteorite_Landings.js";
 
 //select table elemnt in the DOM
 const table = document.getElementById("showData");
