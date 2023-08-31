@@ -113,6 +113,8 @@ implement to enhance this app, if time permits.
 Thanks to NASA and its partners for open-sourcing this data. You can find more
 at [NASA Open Data Portal](https://data.nasa.gov/).
 
+[Nick Grealy](https://stackoverflow.com/users/782034/nick-grealy) for his solution on sorting tables.
+
 ## About Chingu
 
 If you aren’t yet a member of Chingu we invite you to join us. We help our
