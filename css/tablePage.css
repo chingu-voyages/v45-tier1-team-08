@@ -136,8 +136,9 @@ body {
 
 .result-table {
   display: flex;
-  max-height: 40%;
-  overflow: scroll;
+  width: 80%;
+  height: 300px;
+  overflow: auto;
   position: relative;
   border: 1px solid black;
 }
@@ -283,7 +284,17 @@ table {
 table,
 th,
 td {
-  border: 1px solid;
+  border: 1px solid black;
+}
+
+table,
+thead,
+.sticky,
+th {
+  position: sticky;
+  z-index: 100;
+  top: -1px;
+  border-bottom: 1px solid black;
 }
 
 th {
@@ -296,12 +307,12 @@ td {
   text-align: center;
 }
 
-tr:nth-child(even) {
+tr:nth-child(odd) {
   background-color: lightblue;
 }
 
 tr:hover {
-  background-color: aquamarine;
+  background-color: #fff97f;
 }
 
 
