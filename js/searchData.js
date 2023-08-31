@@ -1,18 +1,34 @@
-import { data } from "../Team_Docs/Meteorite_Landings.js";
+import { data } from '/Team_Docs/Meteorite_Landings.js';
+const searchButtons = document.getElementsByClassName('searchBtn');
+const searchTerms = document.getElementsByClassName('searchTerm');
+let linkData = [];
+
+export function fetchData(e) {
+  e.preventDefault();
+  linkData = [];
+  Array.from(searchTerms).map((elem) => {
+    linkData.push(elem.value);
+  });
+  console.log(linkData);
+}
+
+Array.from(searchButtons).map((elem) => {
+  elem.addEventListener('click', fetchData);
+});
 
 const normalizeStr = (str) => {
   return str
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "") // ignore accentuated caracters
-    .replace(/[^a-zA-Z0-9]/g, "") // ignore special caracters
-    .replaceAll(" ", "") // ignore white spaces
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '') // ignore accentuated caracters
+    .replace(/[^a-zA-Z0-9]/g, '') // ignore special caracters
+    .replaceAll(' ', '') // ignore white spaces
     .toLowerCase();
 };
 
 export function searchData({
-  name = "",
-  year = "",
-  recclass = "",
+  name = '',
+  year = '',
+  recclass = '',
   massRange = [],
 }) {
   let results = data;
@@ -22,7 +38,7 @@ export function searchData({
     ? results
     : results.filter((item) => {
         name = normalizeStr(name);
-        const nameRegex = new RegExp(`^${name}`, "i");
+        const nameRegex = new RegExp(`^${name}`, 'i');
         const testedName = normalizeStr(item.name);
 
         return nameRegex.test(testedName);
@@ -36,7 +52,7 @@ export function searchData({
     ? results
     : results.filter((item) => {
         recclass = normalizeStr(recclass);
-        const recclassRegex = new RegExp(`^${recclass}`, "i");
+        const recclassRegex = new RegExp(`^${recclass}`, 'i');
         const testedRecclass = normalizeStr(item.recclass);
 
         return recclassRegex.test(testedRecclass);
@@ -48,7 +64,7 @@ export function searchData({
       ? results
       : results.filter(
           (item) =>
-            item["mass (g)"] >= massRange[0] && item["mass (g)"] <= massRange[1]
+            item['mass (g)'] >= massRange[0] && item['mass (g)'] <= massRange[1]
         );
 
   // 5.return found results, or entire dataset:
