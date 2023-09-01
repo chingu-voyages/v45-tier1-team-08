@@ -16,9 +16,10 @@ export function fetchData(e) {
 function makeLiList(linkData) {
   const formattedSearchData = {
     name: linkData[0],
-    year: +linkData[1],
+    year: linkData[1],
     recclass: linkData[2],
-    massRange: [+linkData[3], +linkData[4]],
+    minMassRange: linkData[3],
+    maxMassRange: linkData[4],
   };
   console.log(formattedSearchData);
   console.log(searchData(formattedSearchData));
@@ -37,10 +38,11 @@ const normalizeStr = (str) => {
 };
 
 export function searchData({
-  name = "",
-  year = "",
-  recclass = "",
-  massRange = [],
+  name,
+  year,
+  recclass,
+  minMassRange,
+  maxMassRange,
 }) {
   let results = data;
 
@@ -55,12 +57,8 @@ export function searchData({
         return nameRegex.test(testedName);
       });
 
-  console.log("1 -- name filter results: ", results);
-
   // 2. filter by year:
-  results = !year ? results : results.filter((item) => item.year === year);
-
-  console.log("2 -- year filter results: ", results);
+  results = !year ? results : results.filter((item) => +item.year == +year);
 
   // 3. filter by composition (recclass):
   results = !recclass
@@ -71,22 +69,30 @@ export function searchData({
         const testedRecclass = normalizeStr(item.recclass);
 
         return recclassRegex.test(testedRecclass);
-      });
-
-  console.log(" 3 -- compo filter results: ", results);
-
+    } );
+  
   // 4. filter by massRange:
-  results =
-    massRange === [0,0]
-      ? results
-      : results.filter((item) => {
-          console.log(massRange[0]);
-          console.log(massRange[1]);
-          return +item.mass_g >= massRange[0] && +item.mass_g <= massRange[1];
-        });
+  if (!minMassRange && !maxMassRange)
+    return results.length === 0 ? data : results;
 
-  console.log(" 4 -- mass filter results: ", results);
+  if (!minMassRange && maxMassRange)
+    results = results.filter((item) => {
+      return item.mass_g && +item.mass_g <= +maxMassRange;
+    });
+  else if (minMassRange && !maxMassRange) {
+    results = results.filter((item) => {
+      return item.mass_g && +item.mass_g >= +minMassRange;
+    });
+  } else {
+    results = results.filter((item) => {
+      return (
+        item.mass_g &&
+        +item.mass_g >= +minMassRange &&
+        +item.mass_g <= +maxMassRange
+      );
+    });
+  }
 
-  // 5.return found results, or entire dataset:
-  return results.length === 0 ? data : results;
+  // 5.return found results:
+  return results;
 }
