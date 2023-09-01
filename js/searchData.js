@@ -55,8 +55,12 @@ export function searchData({
         return nameRegex.test(testedName);
       });
 
+  console.log("1 -- name filter results: ", results);
+
   // 2. filter by year:
   results = !year ? results : results.filter((item) => item.year === year);
+
+  console.log("2 -- year filter results: ", results);
 
   // 3. filter by composition (recclass):
   results = !recclass
@@ -69,14 +73,19 @@ export function searchData({
         return recclassRegex.test(testedRecclass);
       });
 
+  console.log(" 3 -- compo filter results: ", results);
+
   // 4. filter by massRange:
   results =
-    massRange.length === 0
+    massRange === [0,0]
       ? results
-      : results.filter(
-          (item) =>
-            item["mass (g)"] >= massRange[0] && item["mass (g)"] <= massRange[1]
-        );
+      : results.filter((item) => {
+          console.log(massRange[0]);
+          console.log(massRange[1]);
+          return +item.mass_g >= massRange[0] && +item.mass_g <= massRange[1];
+        });
+
+  console.log(" 4 -- mass filter results: ", results);
 
   // 5.return found results, or entire dataset:
   return results.length === 0 ? data : results;
