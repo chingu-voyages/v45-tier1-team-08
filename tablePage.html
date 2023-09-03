@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/searchBox.css" />
+    <link rel="stylesheet" href="css/index.css">
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -39,6 +40,9 @@
             <li><a href="aboutPage.html">About</a></li>
             <li><a href="tablePage.html">Data</a></li>
             <li><a href="contactPage.html">Contact</a></li>
+            <button id="dark-mode-toggle" class="dark-mode-toggle">
+              <svg width="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 596"><path fill="currentColor" d="M8,256C8,393,119,504,256,504S504,393,504,256,393,8,256,8,8,119,8,256ZM256,440V72a184,184,0,0,1,0,368Z" transform="translate(-8 -8)"/></svg>
+            </button>
           </ul>
         </nav>
       </div>
@@ -215,5 +219,6 @@
       ga("send", "pageview");
     </script>
     <script src="https://www.google-analytics.com/analytics.js" async></script>
+    <script src="js/darkMode.js" async></script>
   </body>
 </html>
