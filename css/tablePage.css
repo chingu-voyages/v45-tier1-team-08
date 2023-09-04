@@ -115,16 +115,27 @@ body {
   justify-content: space-evenly;
 }
 
+.search-tool__reset {
+width:auto;
+}
+
+.search-tool__reset img {
+width:80%;
+}
+
 .search-tool__form,
 .collapsed {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
   width: 500px;
   margin: 20px;
   width: 230px;
   position: relative;
   background-color: #e0e0e0;
-  padding: 20px;
+  padding: 10px;
   float: left;
-  height: 30px;
+  height: 50px;
   box-shadow: -8px 8px 20px -6px #000;
   border-radius: 5px;
   transition: height 0.5s ease;
@@ -159,7 +170,7 @@ body {
      ========================== */
 
 .searchTerm:focus {
-  width: 175px;
+  width: 80%;
   background-color: #fff;
   color: #000;
   opacity: 1;
@@ -172,7 +183,7 @@ body {
   background: #ccc;
   color: #444;
   border: 0;
-  width: 150px;
+  width: 80%;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
