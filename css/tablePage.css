@@ -113,10 +113,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  flex: 1;
 }
 
 .search-tool__reset {
 width:auto;
+}
+
+.search-tool__form-btn {
+  width: 100%;
 }
 
 .search-tool__reset img {
