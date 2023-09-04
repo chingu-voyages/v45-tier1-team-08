@@ -197,18 +197,16 @@ width:80%;
 }
 
 .searchBtn {
-  border: 0;
-  position: absolute;
-  width: 38px;
+  /* border: 0; */
+  /* position: absolute; */
+  margin: 5px;
   cursor: pointer;
-  margin: 2px -38px;
-  border-left: 2px solid skyblue;
-  height: 26px;
-  font-weight: 900;
+  border: 2px solid skyblue;
+  /* height: 26px; */
   font-size: 12px;
   background-color: #f6f5ef;
   color: #009f8a;
-  border-radius: 0px 5px 5px 0px;
+  border-radius: 5px;
 }
 
 /* ==========================
