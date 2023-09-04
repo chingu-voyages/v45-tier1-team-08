@@ -1,6 +1,9 @@
 import { data } from '/Team_Docs/Meteorite_Landings.js';
+
 const searchButtons = document.getElementsByClassName('searchBtn');
 const searchTerms = document.getElementsByClassName('searchTerm');
+const searchButton = document.getElementById("search-button");
+
 let linkData = [];
 
 export function fetchData(e) {
@@ -14,7 +17,9 @@ export function fetchData(e) {
 
 Array.from(searchButtons).map((elem) => {
   elem.addEventListener('click', fetchData);
-});
+} );
+
+searchButton.addEventListener("click", fetchData);
 
 const normalizeStr = (str) => {
   return str
