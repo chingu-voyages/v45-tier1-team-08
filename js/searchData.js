@@ -1,19 +1,29 @@
 import { data } from "/Team_Docs/Meteorite_Landings.js";
 const searchButtons = document.getElementsByClassName("searchBtn");
 const searchTerms = document.getElementsByClassName("searchTerm");
-const test = document.querySelector(".suggestionBox");
-let linkData = [];
+export let linkData = [];
 
 export function fetchData(e) {
   e.preventDefault();
   linkData = [];
   Array.from(searchTerms).map((elem) => {
     linkData.push(elem.value);
+  } );
+  console.log( linkData );
+    const formattedSearchData = {
+      name: linkData[0],
+      year: linkData[1],
+      recclass: linkData[2],
+      minMassRange: linkData[3],
+      maxMassRange: linkData[4],
+    };
+  console.log(searchData(formattedSearchData));
+  searchData(formattedSearchData).then((res) => {
+    console.log(res);
   });
-  makeLiList(linkData);
 }
 
-function makeLiList(linkData) {
+function makeLiList(elem) {
   const formattedSearchData = {
     name: linkData[0],
     year: linkData[1],
@@ -21,9 +31,44 @@ function makeLiList(linkData) {
     minMassRange: linkData[3],
     maxMassRange: linkData[4],
   };
-  console.log(formattedSearchData);
-  console.log(searchData(formattedSearchData));
+
+  let results = searchData(formattedSearchData);
+  console.log("elem", elem);
+
+  const currentUl = elem.parentNode.querySelector("ul");
+
+  console.log("results", results);
+  console.log("linkData", linkData);
+
+  // open a ul box (make it visible)
+
+  // displa first 10 results for searchData
+
+  if (!currentUl || results.length == 0) return;
+
+  results = results.length <= 10 ? results : results.splice(0, results[10]);
+
+  console.log(results);
+
+  currentUl && console.log(currentUl.id);
+
+  const liList = results
+    .map(
+      (elem) =>
+        `
+          <li>
+            <span class="name">${elem.name}, <span class="name">${elem.recclass},
+           <span class="name">${elem.year},...
+          </li>
+          `
+    )
+    .join("");
 }
+
+// Array.from(searchTerms).map((elem) => {
+//   elem.addEventListener("input", ()=>{makeLiList(elem)});
+// });
+
 Array.from(searchButtons).map((elem) => {
   elem.addEventListener("click", fetchData);
 });
@@ -37,7 +82,7 @@ const normalizeStr = (str) => {
     .toLowerCase();
 };
 
-export function searchData({
+export async function searchData({
   name,
   year,
   recclass,
@@ -69,8 +114,8 @@ export function searchData({
         const testedRecclass = normalizeStr(item.recclass);
 
         return recclassRegex.test(testedRecclass);
-    } );
-  
+      });
+
   // 4. filter by massRange:
   if (!minMassRange && !maxMassRange)
     return results.length === 0 ? data : results;
@@ -94,5 +139,5 @@ export function searchData({
   }
 
   // 5.return found results:
-  return results;
+  return await results;
 }
