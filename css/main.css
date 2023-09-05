@@ -221,7 +221,10 @@ html {
 /* ==========================================================================
      Navbar
    ========================================================================== */
-  .navbar li {
+  
+  
+  
+   .navbar li {
     display: inline-flex;
     margin-left: 50px;
     
@@ -266,7 +269,8 @@ html {
     position: sticky;
     top: 100%;
     padding-left: 34%;
-    background-color: #b3d4fc;
+    background: rgba(76, 175, 80, 0.1);
+
 
   
 }
