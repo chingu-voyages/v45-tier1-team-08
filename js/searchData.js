@@ -1,6 +1,6 @@
 import { data } from "/Team_Docs/Meteorite_Landings.js";
 
-const searchButtons = document.getElementsByClassName("searchBtn");
+// const searchButtons = document.getElementsByClassName("searchBtn");
 const searchTerms = document.getElementsByClassName("searchTerm");
 const searchButton = document.getElementById("search-button");
 const resetButton = document.getElementById("reset-button");
@@ -14,6 +14,16 @@ export function fetchData(e) {
     linkData.push(elem.value);
   });
   console.log(linkData);
+
+  const formattedSearchData = {
+    name: linkData[0],
+    year: linkData[1],
+    recclass: linkData[2],
+    minMassRange: linkData[3],
+    maxMassRange: linkData[4],
+  };
+
+  console.log(searchData(formattedSearchData));
 }
 
 export function resetFunction(e) {
@@ -24,9 +34,12 @@ export function resetFunction(e) {
   });
 }
 
-Array.from(searchButtons).map((elem) => {
-  elem.addEventListener("click", fetchData);
-});
+// Array.from(searchButtons).map((elem) => {
+//   elem.addEventListener("click", fetchData);
+// });
+
+searchButton.addEventListener("click", fetchData);
+resetButton.addEventListener("click", resetFunction);
 
 searchButton.addEventListener("click", fetchData);
 resetButton.addEventListener("click", resetFunction);
@@ -41,10 +54,11 @@ const normalizeStr = (str) => {
 };
 
 export function searchData({
-  name = "",
-  year = "",
-  recclass = "",
-  massRange = [],
+  name,
+  year,
+  recclass,
+  minMassRange,
+  maxMassRange,
 }) {
   let results = data;
 
@@ -60,7 +74,7 @@ export function searchData({
       });
 
   // 2. filter by year:
-  results = !year ? results : results.filter((item) => item.year === year);
+  results = !year ? results : results.filter((item) => +item.year == +year);
 
   // 3. filter by composition (recclass):
   results = !recclass
@@ -74,14 +88,27 @@ export function searchData({
       });
 
   // 4. filter by massRange:
-  results =
-    massRange.length === 0
-      ? results
-      : results.filter(
-          (item) =>
-            item["mass (g)"] >= massRange[0] && item["mass (g)"] <= massRange[1]
-        );
+  if (!minMassRange && !maxMassRange)
+    return results.length === 0 ? data : results;
+
+  if (!minMassRange && maxMassRange)
+    results = results.filter((item) => {
+      return item.mass_g && +item.mass_g <= +maxMassRange;
+    });
+  else if (minMassRange && !maxMassRange) {
+    results = results.filter((item) => {
+      return item.mass_g && +item.mass_g >= +minMassRange;
+    });
+  } else {
+    results = results.filter((item) => {
+      return (
+        item.mass_g &&
+        +item.mass_g >= +minMassRange &&
+        +item.mass_g <= +maxMassRange
+      );
+    });
+  }
 
   // 5.return found results, or entire dataset:
-  return results.length === 0 ? data : results;
+  return results;
 }
