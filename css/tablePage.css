@@ -122,6 +122,7 @@ width:auto;
 
 .search-tool__form-btn {
   width: 100%;
+  cursor: pointer;
 }
 
 .search-tool__reset img {
