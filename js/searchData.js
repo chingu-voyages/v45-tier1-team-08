@@ -41,6 +41,9 @@ export function resetFunction(e) {
 searchButton.addEventListener("click", fetchData);
 resetButton.addEventListener("click", resetFunction);
 
+searchButton.addEventListener("click", fetchData);
+resetButton.addEventListener("click", resetFunction);
+
 const normalizeStr = (str) => {
   return str
     .normalize("NFD")
