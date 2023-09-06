@@ -1,16 +1,16 @@
 export function makeTable(tab) {
-//select table elemnt in the DOM
-const table = document.getElementById("showData");
+  //select table elemnt in the DOM
+  const table = document.getElementById("showData");
 
-//creat array of <tr> elements for table
-const rows = tab.map((data) => {
-  return `<tr>
+  //creat array of <tr> elements for table
+  const rows = tab.map((data) => {
+    return `<tr>
     <td>${data.name}</td>
     <td>${data.year}</td>
     <td>${data.recclass}</td>
     <td>${data.mass_g}</td>
   </tr>`;
-});
+  });
 
   // insert array of <tr> elements into table
   table.querySelector("tbody").innerHTML = rows.join("");
@@ -46,3 +46,25 @@ const rows = tab.map((data) => {
     }
   });
 }
+
+// Toggle commands
+const toggleChartButton = document.getElementById("toggle-chart");
+const toggleMapButton = document.getElementById("toggle-map");
+const mapContainer = document.getElementById("map");
+const graphContainer = document.getElementById("graph");
+
+// Initial state: Show the chart and hide the map
+mapContainer.style.display = "none";
+graphContainer.style.display = "block";
+
+toggleChartButton.addEventListener("click", () => {
+  // Show the chart and hide the map
+  mapContainer.style.display = "none";
+  graphContainer.style.display = "block";
+});
+
+toggleMapButton.addEventListener("click", () => {
+  // Show the map and hide the chart
+  mapContainer.style.display = "block";
+  graphContainer.style.display = "none";
+});

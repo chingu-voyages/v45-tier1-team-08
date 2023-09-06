@@ -117,7 +117,7 @@ body {
 }
 
 .search-tool__reset {
-width:auto;
+  width: auto;
 }
 
 .search-tool__form-btn {
@@ -126,7 +126,7 @@ width:auto;
 }
 
 .search-tool__reset img {
-width:80%;
+  width: 80%;
 }
 
 .search-tool__form,
