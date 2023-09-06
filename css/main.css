@@ -268,19 +268,18 @@ html {
   .footer-basic {
     position: sticky;
     top: 100%;
-    padding-left: 34%;
+    padding-right: 30px;
     background: rgba(76, 175, 80, 0.1);
-
-
+    text-align: center;
+    color: rgb(134, 82, 225);
   
-}
+  }
    
   .footer-basic li {
    display: inline-flex;
    padding-top: 20px;
    margin-left: 20px;
  
-   
   }
 
 
