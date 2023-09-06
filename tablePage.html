@@ -118,13 +118,18 @@
                 <ul class="suggestionBox"></ul>
               </form>
               <div class="search-tool__buttons">
-                <button class="search-tool__form-btn" id="search-button"> Search</button>
-                <button class="search-tool__form-btn" id="reset-button"> Reset</button>
+                <button class="search-tool__form-btn" id="search-button">
+                  Search
+                </button>
+                <button class="search-tool__form-btn" id="reset-button">
+                  Reset
+                </button>
               </div>
             </div>
             <hr />
             <div class="search-tool__toggle">
-              <button class="search-tool__toggle btn">Chart View</button>
+              <button id="toggle-chart">Chart View</button>
+              <button id="toggle-map">Map View</button>
             </div>
           </div>
         </div>
@@ -151,6 +156,14 @@
         <!-- 4) Chart result view:  -->
         <div class="result-chart">
           <div id="map"></div>
+        </div>
+
+        <!-- Graph result view -->
+
+        <div class="result-graph">
+          <div id="graph">
+            <p>placeholder text</p>
+          </div>
         </div>
 
         <!-- 5) Result navigation bar: -->
