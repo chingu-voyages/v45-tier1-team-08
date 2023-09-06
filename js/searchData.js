@@ -1,3 +1,4 @@
+import { displayMap } from "./displayMap.js";
 import { data } from "/Team_Docs/Meteorite_Landings.js";
 
 // const searchButtons = document.getElementsByClassName("searchBtn");
@@ -5,41 +6,33 @@ const searchTerms = document.getElementsByClassName("searchTerm");
 const searchButton = document.getElementById("search-button");
 const resetButton = document.getElementById("reset-button");
 
-let linkData = [];
+displayMap(data); // initialize map with all results at first.
 
-export function fetchData(e) {
+function fetchData(e) {
   e.preventDefault();
-  linkData = [];
+  let linkData = [];
   Array.from(searchTerms).map((elem) => {
     linkData.push(elem.value);
   });
-  console.log(linkData);
 
-  const formattedSearchData = {
+  let formattedSearchData = {
     name: linkData[0],
     year: linkData[1],
     recclass: linkData[2],
     minMassRange: linkData[3],
     maxMassRange: linkData[4],
   };
-
-  console.log(searchData(formattedSearchData));
+  searchData( formattedSearchData ).then( (results) => {
+    displayMap(results);
+  })
 }
 
 export function resetFunction(e) {
   e.preventDefault();
-  linkData = [];
   Array.from(searchTerms).map((elem) => {
     elem.value = "";
   });
 }
-
-// Array.from(searchButtons).map((elem) => {
-//   elem.addEventListener("click", fetchData);
-// });
-
-searchButton.addEventListener("click", fetchData);
-resetButton.addEventListener("click", resetFunction);
 
 searchButton.addEventListener("click", fetchData);
 resetButton.addEventListener("click", resetFunction);
@@ -53,7 +46,7 @@ const normalizeStr = (str) => {
     .toLowerCase();
 };
 
-export function searchData({
+export async function searchData({
   name,
   year,
   recclass,
