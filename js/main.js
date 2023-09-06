@@ -1,6 +1,6 @@
 import { data as dataFile } from "/Team_Docs/testData.js";
 
-//select table elemnt in the DOM
+//select elements in the DOM
 const table = document.getElementById("showData");
 
 //creat array of <tr> elements for table
@@ -16,6 +16,7 @@ const rows = dataFile.map((data) => {
 // insert array of <tr> elements into table
 table.querySelector("tbody").innerHTML = rows.join("");
 
+// Sort function
 $(document).ready(function () {
   // wait for page to load
   $("th").click(function () {
@@ -45,4 +46,26 @@ $(document).ready(function () {
   function getCellValue(row, index) {
     return $(row).children("td").eq(index).text();
   }
+});
+
+// Toggle commands
+const toggleChartButton = document.getElementById("toggle-chart");
+const toggleMapButton = document.getElementById("toggle-map");
+const mapContainer = document.getElementById("map");
+const graphContainer = document.getElementById("graph");
+
+// Initial state: Show the chart and hide the map
+mapContainer.style.display = "none";
+graphContainer.style.display = "block";
+
+toggleChartButton.addEventListener("click", () => {
+  // Show the chart and hide the map
+  mapContainer.style.display = "none";
+  graphContainer.style.display = "block";
+});
+
+toggleMapButton.addEventListener("click", () => {
+  // Show the map and hide the chart
+  mapContainer.style.display = "block";
+  graphContainer.style.display = "none";
 });
