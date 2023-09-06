@@ -1,12 +1,14 @@
 import { displayMap } from "./displayMap.js";
 import { data } from "/Team_Docs/Meteorite_Landings.js";
+import { makeTable } from "./main.js";
 
 // const searchButtons = document.getElementsByClassName("searchBtn");
 const searchTerms = document.getElementsByClassName("searchTerm");
 const searchButton = document.getElementById("search-button");
 const resetButton = document.getElementById("reset-button");
 
-displayMap(data); // initialize map with all results at first.
+displayMap( data ); // initialize map with all results at first.
+makeTable(data.slice(0,100));// initialize table with some results at first.
 
 function fetchData(e) {
   e.preventDefault();
@@ -23,7 +25,8 @@ function fetchData(e) {
     maxMassRange: linkData[4],
   };
   searchData( formattedSearchData ).then( (results) => {
-    displayMap(results);
+    // displayMap( results );
+    makeTable(results);
   })
 }
 
