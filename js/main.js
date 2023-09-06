@@ -46,25 +46,3 @@ export function makeTable(tab) {
     }
   });
 }
-
-// Toggle commands
-const toggleChartButton = document.getElementById("toggle-chart");
-const toggleMapButton = document.getElementById("toggle-map");
-const mapContainer = document.getElementById("map");
-const graphContainer = document.getElementById("graph");
-
-// Initial state: Show the chart and hide the map
-mapContainer.style.display = "none";
-graphContainer.style.display = "block";
-
-toggleChartButton.addEventListener("click", () => {
-  // Show the chart and hide the map
-  mapContainer.style.display = "none";
-  graphContainer.style.display = "block";
-});
-
-toggleMapButton.addEventListener("click", () => {
-  // Show the map and hide the chart
-  mapContainer.style.display = "block";
-  graphContainer.style.display = "none";
-});

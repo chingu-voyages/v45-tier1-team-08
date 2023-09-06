@@ -7,8 +7,8 @@ const searchTerms = document.getElementsByClassName("searchTerm");
 const searchButton = document.getElementById("search-button");
 const resetButton = document.getElementById("reset-button");
 
-displayMap( data ); // initialize map with all results at first.
-makeTable(data.slice(0,100));// initialize table with some results at first.
+displayMap(data); // initialize map with all results at first.
+makeTable(data.slice(0, 100)); // initialize table with some results at first.
 
 function fetchData(e) {
   e.preventDefault();
@@ -24,10 +24,10 @@ function fetchData(e) {
     minMassRange: linkData[3],
     maxMassRange: linkData[4],
   };
-  searchData( formattedSearchData ).then( (results) => {
-    // displayMap( results );
+  searchData(formattedSearchData).then((results) => {
+    displayMap( results );
     makeTable(results);
-  })
+  });
 }
 
 export function resetFunction(e) {
@@ -39,6 +39,28 @@ export function resetFunction(e) {
 
 searchButton.addEventListener("click", fetchData);
 resetButton.addEventListener("click", resetFunction);
+
+// Toggle commands
+const toggleChartButton = document.getElementById("toggle-chart");
+const toggleMapButton = document.getElementById("toggle-map");
+const mapContainer = document.getElementById("map");
+const graphContainer = document.getElementById("graph");
+
+// Initial state: Show the chart and hide the map
+mapContainer.style.display = "none";
+graphContainer.style.display = "block";
+
+toggleChartButton.addEventListener("click", () => {
+  // Show the chart and hide the map
+  mapContainer.style.display = "none";
+  graphContainer.style.display = "block";
+});
+
+toggleMapButton.addEventListener("click", () => {
+  // Show the map and hide the chart
+  mapContainer.style.display = "block";
+  graphContainer.style.display = "none";
+});
 
 const normalizeStr = (str) => {
   return str
