@@ -1,11 +1,7 @@
 import { data as dataFile } from "/Team_Docs/testData.js";
 
-//select elemnts in the DOM
+//select elements in the DOM
 const table = document.getElementById("showData");
-const mapBtn = document.getElementById("toogle-map");
-const chartBtn = document.getElementById("toggle-chart");
-const mapDiv = document.getElementById("map");
-const chartDiv = document.getElementById("graph");
 
 //creat array of <tr> elements for table
 const rows = dataFile.map((data) => {
