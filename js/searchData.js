@@ -1,48 +1,66 @@
+import { displayMap } from "./displayMap.js";
 import { data } from "/Team_Docs/Meteorite_Landings.js";
+import { makeTable } from "./main.js";
 
 // const searchButtons = document.getElementsByClassName("searchBtn");
 const searchTerms = document.getElementsByClassName("searchTerm");
 const searchButton = document.getElementById("search-button");
 const resetButton = document.getElementById("reset-button");
 
-let linkData = [];
+displayMap(data); // initialize map with all results at first.
+makeTable(data.slice(0, 100)); // initialize table with some results at first.
 
-export function fetchData(e) {
+function fetchData(e) {
   e.preventDefault();
-  linkData = [];
+  let linkData = [];
   Array.from(searchTerms).map((elem) => {
     linkData.push(elem.value);
   });
-  console.log(linkData);
 
-  const formattedSearchData = {
+  let formattedSearchData = {
     name: linkData[0],
     year: linkData[1],
     recclass: linkData[2],
     minMassRange: linkData[3],
     maxMassRange: linkData[4],
   };
-
-  console.log(searchData(formattedSearchData));
+  searchData(formattedSearchData).then((results) => {
+    displayMap( results );
+    makeTable(results);
+  });
 }
 
 export function resetFunction(e) {
   e.preventDefault();
-  linkData = [];
   Array.from(searchTerms).map((elem) => {
     elem.value = "";
   });
 }
 
-// Array.from(searchButtons).map((elem) => {
-//   elem.addEventListener("click", fetchData);
-// });
-
 searchButton.addEventListener("click", fetchData);
 resetButton.addEventListener("click", resetFunction);
 
-searchButton.addEventListener("click", fetchData);
-resetButton.addEventListener("click", resetFunction);
+// Toggle commands
+const toggleChartButton = document.getElementById("toggle-chart");
+const toggleMapButton = document.getElementById("toggle-map");
+const mapContainer = document.getElementById("map");
+const graphContainer = document.getElementById("graph");
+
+// Initial state: Show the chart and hide the map
+mapContainer.style.display = "none";
+graphContainer.style.display = "block";
+
+toggleChartButton.addEventListener("click", () => {
+  // Show the chart and hide the map
+  mapContainer.style.display = "none";
+  graphContainer.style.display = "block";
+});
+
+toggleMapButton.addEventListener("click", () => {
+  // Show the map and hide the chart
+  mapContainer.style.display = "block";
+  graphContainer.style.display = "none";
+});
 
 const normalizeStr = (str) => {
   return str
@@ -53,7 +71,7 @@ const normalizeStr = (str) => {
     .toLowerCase();
 };
 
-export function searchData({
+export async function searchData({
   name,
   year,
   recclass,
