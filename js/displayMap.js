@@ -1,3 +1,4 @@
+var map = null;
 
 export function displayMap(tab) {
   const searchValueList = tab;
@@ -11,8 +12,12 @@ export function displayMap(tab) {
   console.log(resultsCoords);
   // I am using this as reference for the map: https://d3-graph-gallery.com/graph/bubblemap_leaflet_basic.html
 
-  var map = L.map("map").setView([40.7448855, -74.0131188], 1); //position of the element in the HTML will depends on the element given - here, an id selected div called "map"; the second argument of setView is the zoom level
-
+ if (map !== undefined && map !== null) {
+    map.remove(); // should remove the map from UI and clean the inner children of DOM element
+  }
+  
+  map = L.map("map").setView([40.7448855, -74.0131188], 1); //position of the element in the HTML will depends on the element given - here, an id selected div called "map"; the second argument of setView is the zoom level
+  
   // Add a tile to the map = a background. Comes from OpenStreetmap
   L.tileLayer("https://tile.openstreetmap.fr/hot/{z}/{x}/{y}.png", {
     attribution:
