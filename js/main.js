@@ -1,32 +1,9 @@
 import { data as dataFile } from "/Team_Docs/testData.js";
 
-console.log(dataFile);
-
-//select table elemnt in the DOM
+//select elements in the DOM
 const table = document.getElementById("showData");
 
-//list of specific keys to extract
-const keyHeaders = ["name", "year", "recclass", "mass_g"];
-
-//Gather array of object keys (headers for table)
-const filteredHeaders = Object.keys(dataFile[0]).filter((key) =>
-  keyHeaders.includes(key)
-);
-console.log(filteredHeaders);
-
-// reorder headers for table
-const headers = keyHeaders.map((key) => filteredHeaders.find((k) => k === key));
-
-//Create array of <th> elemnets for table
-const headerRow = headers.map((header) => {
-  return `
-  <th>${header}</th>`;
-});
-console.log(headerRow);
-// insert array of <th> into <thead>
-table.querySelector("thead").innerHTML = headerRow.join("");
-
-//creat array pf <tr> elements for table
+//creat array of <tr> elements for table
 const rows = dataFile.map((data) => {
   return `<tr>
     <td>${data.name}</td>
@@ -39,41 +16,56 @@ const rows = dataFile.map((data) => {
 // insert array of <tr> elements into table
 table.querySelector("tbody").innerHTML = rows.join("");
 
-// the json dataFile.
-// Extract value from table header.
-// let col = [];
-// for (let i = 0; i < dataFile.length; i++) {
-//   for (let key in dataFile[i]) {
-//     if (col.indexOf(key) === -1) {
-//       col.push(key);
-//     }
-//   }
-// }
+// Sort function
+$(document).ready(function () {
+  // wait for page to load
+  $("th").click(function () {
+    // sorts table by clicking on header element
+    var table = $(this).parents("table").eq(0);
+    var rows = table
+      .find("tr:gt(0)")
+      .toArray()
+      .sort(comparer($(this).index()));
+    this.asc = !this.asc;
+    if (!this.asc) {
+      rows = rows.reverse();
+    }
+    for (var i = 0; i < rows.length; i++) {
+      table.append(rows[i]);
+    }
+  });
+  function comparer(index) {
+    return function (a, b) {
+      var valA = getCellValue(a, index),
+        valB = getCellValue(b, index);
+      return $.isNumeric(valA) && $.isNumeric(valB)
+        ? valA - valB
+        : valA.toString().localeCompare(valB);
+    };
+  }
+  function getCellValue(row, index) {
+    return $(row).children("td").eq(index).text();
+  }
+});
 
-// Create a table.
-// const table = document.createElement("table");
+// Toggle commands
+const toggleChartButton = document.getElementById("toggle-chart");
+const toggleMapButton = document.getElementById("toggle-map");
+const mapContainer = document.getElementById("map");
+const graphContainer = document.getElementById("graph");
 
-// // Create table header row using the extracted headers above.
-// let tr = table.insertRow(-1); // table row.
+// Initial state: Show the chart and hide the map
+mapContainer.style.display = "none";
+graphContainer.style.display = "block";
 
-// for (let i = 0; i < col.length; i++) {
-//   let th = document.createElement("th"); // table header.
-//   th.innerHTML = col[i];
-//   tr.appendChild(th);
-// }
+toggleChartButton.addEventListener("click", () => {
+  // Show the chart and hide the map
+  mapContainer.style.display = "none";
+  graphContainer.style.display = "block";
+});
 
-// // add json dataFile to the table as rows.
-// for (let i = 0; i < dataFile.length; i++) {
-//   tr = table.insertRow(-1);
-
-//   for (let j = 0; j < col.length; j++) {
-//     let tabCell = tr.insertCell(-1);
-//     tabCell.innerHTML = dataFile[i][col[j]];
-//   }
-// }
-
-// Now, add the newly created table with json dataFile, to a container.
-// const divShowData = document.getElementById("showData");
-// dataFile.forEach(element => divShowData.appendChild(element)
-// // divShowData.innerHTML = "";
-// divShowData.appendChild(table);
+toggleMapButton.addEventListener("click", () => {
+  // Show the map and hide the chart
+  mapContainer.style.display = "block";
+  graphContainer.style.display = "none";
+});
