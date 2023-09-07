@@ -55,6 +55,7 @@
             <div class="search-tool__forms">
               <form class="search-tool__form">
                 <input
+                  id="compositionInput"
                   class="searchTerm"
                   placeholder="Name…"
                   autocomplete="off"
@@ -68,6 +69,7 @@
               <form class="search-tool__form">
                 <input
                   class="searchTerm"
+                  id="compositionInput"
                   type="number"
                   min="1880"
                   placeholder="Year strike…"
@@ -82,6 +84,7 @@
               <form class="search-tool__form">
                 <input
                   class="searchTerm"
+                  id="compositionInput"
                   placeholder="Composition…"
                   autocomplete="off"
                 />
@@ -94,6 +97,7 @@
               <form class="search-tool__form collapsed">
                 <input
                   class="searchTerm"
+                  id="compositionInput"
                   type="number"
                   min="0"
                   placeholder="Min Mass..."
@@ -109,6 +113,7 @@
                   type="number"
                   min="0"
                   class="searchTerm"
+                  id="compositionInput"
                   placeholder="Max Mass..."
                   autocomplete="off"
                 />
@@ -160,11 +165,7 @@
 
         <!-- Graph result view -->
 
-        <div class="result-graph">
-          <div id="graph">
-            <p>placeholder text</p>
-          </div>
-        </div>
+        <canvas id="combinedGraph"></canvas>
 
         <!-- 5) Result navigation bar: -->
         <div class="result-tool-bar">
@@ -208,7 +209,7 @@
     <script type="module" src="js/searchData.js"></script>
     <script type="module" src="js/displayMap.js"></script>
     <script type="module" src="js/main.js"></script>
-    <script type="module" src="Team_Docs/testData.js"></script>
+    <script type="module" src="js/displayGraph.js"></script>
 
     <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
     <script>
