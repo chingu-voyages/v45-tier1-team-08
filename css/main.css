@@ -105,6 +105,7 @@ ul {
   top: 0;
   bottom: 0;
   z-index: -1;
+  position: fixed;
 }
 
 #nav1 {
@@ -130,7 +131,6 @@ html {
 * {
   box-sizing: border-box;
 }
-
 
 /* ==========================================================================
    Helper classes
@@ -225,9 +225,9 @@ html {
 }
 
 @media print,
-(-webkit-min-device-pixel-ratio: 1.25),
-(min-resolution: 1.25dppx),
-(min-resolution: 120dpi) {
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 1.25dppx),
+  (min-resolution: 120dpi) {
   /* Style adjustments for high resolution devices */
 }
 
@@ -238,7 +238,6 @@ html {
    ========================================================================== */
 
 @media print {
-
   *,
   *::before,
   *::after {
