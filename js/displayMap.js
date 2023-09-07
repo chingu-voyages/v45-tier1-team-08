@@ -4,19 +4,31 @@ export function displayMap(tab) {
   const searchValueList = tab;
   // Conversion of searchData results to a list of GSP coordinates:
   const resultsCoords = searchValueList
-  .filter((result) => result.GeoLocation !== "")
-  .map((result) => {
-    return { long: result.reclong, lat: result.reclat };
-  });
-  
+    .filter((result) => result.GeoLocation !== "")
+    .map((result) => {
+      return { long: result.reclong, lat: result.reclat };
+    });
+
   console.log(resultsCoords);
   // I am using this as reference for the map: https://d3-graph-gallery.com/graph/bubblemap_leaflet_basic.html
 
- if (map !== undefined && map !== null) {
+  if (map !== undefined && map !== null) {
     map.remove(); // should remove the map from UI and clean the inner children of DOM element
   }
 
-  map = L.map("map").setView([40.7448855, -74.0131188], 1); //position of the element in the HTML will depends on the element given - here, an id selected div called "map"; the second argument of setView is the zoom level
+  map = L.map("map", {
+    maxZoom: 9,
+    minZoom: 1.5,
+    zoomControl: false,
+  }).setView([40.7448855, -74.0131188], 1); //position of the element in the HTML will depends on the element given - here, an id selected div called "map"; the second argument of setView is the zoom level
+
+  L.control
+    .zoom({
+      position: "topleft",
+    })
+    .addTo( map );
+
+  // map = L.map("map").setView([40.7448855, -74.0131188], 1); //position of the element in the HTML will depends on the element given - here, an id selected div called "map"; the second argument of setView is the zoom level
 
   map.invalidateSize(); // update to ensure that tiles are properly shown
 
