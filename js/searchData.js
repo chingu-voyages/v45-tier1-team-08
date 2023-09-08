@@ -1,5 +1,5 @@
 import { displayMap } from "./displayMap.js";
-import { createCombinedChart } from "./displayGraph.js";
+// import { createCombinedChart } from "./displayGraph.js";
 import { data } from "/Team_Docs/Meteorite_Landings.js";
 import { makeTable } from "./main.js";
 
@@ -8,7 +8,7 @@ const searchTerms = document.getElementsByClassName("searchTerm");
 const searchButton = document.getElementById("search-button");
 const resetButton = document.getElementById("reset-button");
 
-createCombinedChart(data);
+// createCombinedChart(data);
 displayMap(data); // initialize map with all results at first.
 makeTable(data.slice(0, 100)); // initialize table with some results at first.
 
@@ -28,7 +28,7 @@ function fetchData(e) {
   };
   searchData(formattedSearchData).then((results) => {
     console.log("search results:", results);
-    createCombinedChart(results);
+    // createCombinedChart(results);
     displayMap(results);
     makeTable(results);
   });
@@ -39,6 +39,8 @@ export function resetFunction(e) {
   Array.from(searchTerms).map((elem) => {
     elem.value = "";
   });
+  displayMap(data);
+  makeTable(data.slice(0, 100));
 }
 
 searchButton.addEventListener("click", fetchData);
