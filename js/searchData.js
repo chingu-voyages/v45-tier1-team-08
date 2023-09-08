@@ -1,16 +1,14 @@
 import { displayMap } from "./displayMap.js";
-// import { createCombinedChart } from "./displayGraph.js";
+import { createCombinedChart } from "./displayGraph.js";
 import { data } from "/Team_Docs/Meteorite_Landings.js";
 import { makeTable } from "./main.js";
-import { makeGraph } from "./testGraph.js";
 
 // const searchButtons = document.getElementsByClassName("searchBtn");
 const searchTerms = document.getElementsByClassName("searchTerm");
 const searchButton = document.getElementById("search-button");
 const resetButton = document.getElementById("reset-button");
 
-// createCombinedChart(data);
-makeGraph();
+createCombinedChart(data);
 displayMap(data); // initialize map with all results at first.
 makeTable(data.slice(0, 100)); // initialize table with some results at first.
 
@@ -30,7 +28,7 @@ function fetchData(e) {
   };
   searchData(formattedSearchData).then((results) => {
     console.log("search results:", results);
-    // createCombinedChart(results);
+    createCombinedChart(results);
     displayMap(results);
     makeTable(results);
   });

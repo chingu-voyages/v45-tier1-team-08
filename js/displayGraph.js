@@ -1,8 +1,3 @@
-// chartFunctions.js
-
-// Import any necessary dependencies and functions here
-import Chart from "chart.js/auto";
-
 // Calculate the total number of strikes
 function calculateTotalStrikes(data) {
   console.log(data);
