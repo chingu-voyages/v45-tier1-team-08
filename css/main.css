@@ -214,6 +214,75 @@ html {
   clear: both;
 }
 
+
+
+
+
+/* ==========================================================================
+     Navbar
+   ========================================================================== */
+  
+  
+  
+   .navbar li {
+    display: inline-flex;
+    margin-left: 50px;
+    
+    
+
+  }
+    
+
+
+/* ==========================================================================
+      Images 
+   ========================================================================== */
+    .meteor {
+      height: 250px;
+      margin-left: 4px;
+      border-radius: 40%;
+    }
+
+    .meteorChain {
+      height: 100px;
+      margin-left: 200px;
+     
+  }
+
+  #Purchase {
+    float: left;
+
+  }
+
+.portrait {
+  height: 200px;
+  margin-top: 40px;
+  margin-left: 20px;
+  border-radius: 40%;
+}
+
+/* ==========================================================================
+     Footer
+   ========================================================================== */
+    
+  .footer-basic {
+    position: sticky;
+    top: 100%;
+    padding-right: 30px;
+    background: rgba(76, 175, 80, 0.1);
+    text-align: center;
+    color: rgb(134, 82, 225);
+  
+  }
+   
+  .footer-basic li {
+   display: inline-flex;
+   padding-top: 20px;
+   margin-left: 20px;
+ 
+  }
+
+
 /* ==========================================================================
    EXAMPLE Media Queries for Responsive Design.
    These examples override the primary ('mobile first') styles.
