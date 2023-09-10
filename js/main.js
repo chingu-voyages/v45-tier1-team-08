@@ -2,6 +2,7 @@ export function makeTable(tab) {
   //select table elemnt in the DOM
   const table = document.getElementById("showData");
 
+
   //creat array of <tr> elements for table
   const rows = tab.map((data) => {
     return `<tr>
