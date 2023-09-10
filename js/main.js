@@ -3,6 +3,7 @@ export function makeTable(tab) {
   let table = document.getElementById("showData");
 
 
+
   //creat array of <tr> elements for table
   const rows = tab.map((data) => {
     return `<tr>
@@ -11,12 +12,14 @@ export function makeTable(tab) {
     <td>${data.recclass}</td>
     <td>${data.mass_g}</td>
   </tr>`;
+
   });
 
   // insert array of <tr> elements into table
   table.querySelector("tbody").innerHTML = rows.join("");
   console.log(table);
   table = new DataTable('#showData');
+  showData_filter.remove();
   // $(document).ready(function () {
   //   // wait for page to load
   //   $("th").click(function () {
