@@ -1,6 +1,6 @@
 import { displayMap } from './displayMap.js';
 import { data } from '/Team_Docs/Meteorite_Landings.js';
-import { makeTable } from './main.js';
+import { makeTable, updateTable } from './main.js';
 
 // const searchButtons = document.getElementsByClassName("searchBtn");
 const searchTerms = document.getElementsByClassName('searchTerm');
@@ -26,7 +26,7 @@ function fetchData(e) {
   };
   searchData(formattedSearchData).then((results) => {
     displayMap(results);
-    makeTable(results);
+    updateTable(results);
   });
 }
 

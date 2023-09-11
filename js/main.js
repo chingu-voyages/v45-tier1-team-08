@@ -1,53 +1,39 @@
+let table = document.getElementById("showData");
+
 export function makeTable(tab) {
-  //select table elemnt in the DOM
-  let table = document.getElementById("showData");
+  const rows = [
+    {
+      Name: "data.name",
+      Year: "data.year",
+      Composition: "data.recclass",
+      Mass: "data.mass_g",
+    }, // dummy data; should be a list of objects with exact same format. Have a look here: https://datatables.net/reference/option/data
+  ];
 
-
-
-  //creat array of <tr> elements for table
-  const rows = tab.map((data) => {
-    return `<tr>
-    <td>${data.name}</td>
-    <td>${data.year}</td>
-    <td>${data.recclass}</td>
-    <td>${data.mass_g}</td>
-  </tr>`;
-
+  $("#showData").dataTable({
+    data: rows,
+    columns: [
+      { data: "Name" },
+      { data: "Year" },
+      { data: "Composition" },
+      { data: "Mass" },
+    ],
   });
-
-  // insert array of <tr> elements into table
-  table.querySelector("tbody").innerHTML = rows.join("");
-  console.log(table);
-  table = new DataTable('#showData');
   showData_filter.remove();
-  // $(document).ready(function () {
-  //   // wait for page to load
-  //   $("th").click(function () {
-  //     // sorts table by clicking on header element
-  //     var table = $(this).parents("table").eq(0);
-  //     var rows = table
-  //       .find("tr:gt(0)")
-  //       .toArray()
-  //       .sort(comparer($(this).index()));
-  //     this.asc = !this.asc;
-  //     if (!this.asc) {
-  //       rows = rows.reverse();
-  //     }
-  //     for (var i = 0; i < rows.length; i++) {
-  //       table.append(rows[i]);
-  //     }
-  //   });
-  //   function comparer(index) {
-  //     return function (a, b) {
-  //       var valA = getCellValue(a, index),
-  //         valB = getCellValue(b, index);
-  //       return $.isNumeric(valA) && $.isNumeric(valB)
-  //         ? valA - valB
-  //         : valA.toString().localeCompare(valB);
-  //     };
-  //   }
-  //   function getCellValue(row, index) {
-  //     return $(row).children("td").eq(index).text();
-  //   }
-  // });
 }
+
+export function updateTable( tab ) {
+  // creation of a brand new table at each search call:
+  table = new DataTable("#showData");
+  table.clear().draw(); // will reset the current table
+  table.row
+    .add({
+      Name: "data.!!!!!",
+      Year: "data.!!!!!",
+      Composition: "data.!!!!!",
+      Mass: "data.!!!!!",
+    }) // same format here as well
+    .draw();
+}
+
+// DataTables warning: table id=showData - Requested unknown parameter '0' for row 0, column 0. For more information about this error, please see http://datatables.net/tn/4
