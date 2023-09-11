@@ -1,12 +1,13 @@
 // Calculate the total number of strikes
 function calculateTotalStrikes(data) {
-  console.log(data);
   return data.length;
 }
 
 // Calculate the average mass
 function calculateAverageMass(data) {
-  const masses = data.map((item) => item.mass_g).filter((mass) => !!mass);
+  const masses = data
+    .map((item) => parseFloat(item.mass_g))
+    .filter((mass) => !isNaN(mass));
   if (masses.length === 0) return 0; // Avoid division by zero
   const totalMass = masses.reduce((sum, mass) => sum + mass, 0);
   return (totalMass / masses.length).toFixed(2); // Calculate average and round to 2 decimal places
@@ -68,6 +69,14 @@ function createCombinedChart(results) {
   // Calculate average mass
   const averageMass = calculateAverageMass(results);
 
+  // Get the <span> elements by their IDs
+  const totalStrikesSpan = document.getElementById("totalS");
+  const averageMassSpan = document.getElementById("avgMass");
+
+  // Set the innerHTML of the <span> elements
+  totalStrikesSpan.innerHTML = `Total Strikes: ${totalStrikes}`;
+  averageMassSpan.innerHTML = `Average Mass: ${averageMass} grams`;
+
   // Create year histogram data
   const yearHistogramData = createYearHistogramData(results);
 
@@ -102,20 +111,20 @@ function createCombinedChart(results) {
         borderWidth: 1,
         type: "bar", // Bar chart for composition histogram
       },
-      {
-        label: "Average Mass",
-        data: [averageMass],
-        borderColor: "green", // Line color for average mass
-        fill: false,
-        type: "line", // Line chart for average mass
-      },
-      {
-        label: "Total Strikes",
-        data: [totalStrikes],
-        backgroundColor: "orange",
-        borderWidth: 1,
-        type: "bar", // Bar chart for
-      },
+      // {
+      //   label: "Average Mass",
+      //   data: [averageMass],
+      //   borderColor: "green", // Line color for average mass
+      //   fill: false,
+      //   type: "line", // Line chart for average mass
+      // },
+      // {
+      //   label: "Total Strikes",
+      //   data: [totalStrikes],
+      //   backgroundColor: "orange",
+      //   borderWidth: 1,
+      //   type: "bar", // Bar chart for
+      // },
     ],
   };
 

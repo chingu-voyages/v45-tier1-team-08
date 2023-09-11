@@ -164,31 +164,15 @@
         </div>
 
         <!-- Graph result view -->
-        <canvas id="combinedGraph" style="width:100vh;max-width:700px"></canvas>
+        <canvas
+          id="combinedGraph"
+          style="width: 100vh; max-width: 700px"
+        ></canvas>
 
         <!-- 5) Result navigation bar: -->
-        <div class="result-tool-bar">
-          <div class="result-tool-bar__previous">
-            <button class="result-tool-bar__previous btn">Previous</button>
-          </div>
-          <div class="result-tool-bar__next">
-            <button class="result-tool-bar__next btn">Next</button>
-          </div>
-          <div class="result-tool-bar__clear">
-            <button class="result-tool-bar__clear btn">Clear</button>
-          </div>
-          <div class="result-tool-bar__desc">
-            <p class="result-tool-bar__desc p">
-              Showing meteorite strikes
-              <span class="result-tool-bar__desc--shown-strikes"
-                >[nbr of strikes on screen]</span
-              >
-              out of
-              <span class="result-tool-bar__desc--total-strikes"
-                >[total nbr of strikes]</span
-              >
-            </p>
-          </div>
+        <div class="resultNum">
+          <span id="totalS"></span>
+          <span id="avgMass"></span>
         </div>
       </section>
     </main>
