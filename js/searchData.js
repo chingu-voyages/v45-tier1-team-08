@@ -4,9 +4,9 @@ import { data } from "/Team_Docs/Meteorite_Landings.js";
 import { makeTable } from "./main.js";
 
 // const searchButtons = document.getElementsByClassName("searchBtn");
-const searchTerms = document.getElementsByClassName("searchTerm");
-const searchButton = document.getElementById("search-button");
-const resetButton = document.getElementById("reset-button");
+const searchTerms = document.getElementsByClassName('searchTerm');
+const searchButton = document.getElementById('search-button');
+const resetButton = document.getElementById('reset-button');
 
 createCombinedChart(data);
 displayMap(data); // initialize map with all results at first.
@@ -27,7 +27,6 @@ function fetchData(e) {
     maxMassRange: linkData[4],
   };
   searchData(formattedSearchData).then((results) => {
-    console.log("search results:", results);
     createCombinedChart(results);
     displayMap(results);
     makeTable(results);
@@ -37,14 +36,15 @@ function fetchData(e) {
 export function resetFunction(e) {
   e.preventDefault();
   Array.from(searchTerms).map((elem) => {
-    elem.value = "";
+    elem.value = '';
   });
-  displayMap(data);
-  makeTable(data.slice(0, 100));
+  displayMap(data); // reinitialize map with all results at first.
+  makeTable(data.slice(0, 100)); // reinitialize table with some results at first.
+
 }
 
-searchButton.addEventListener("click", fetchData);
-resetButton.addEventListener("click", resetFunction);
+searchButton.addEventListener('click', fetchData);
+resetButton.addEventListener('click', resetFunction);
 
 // Toggle commands
 const toggleChartButton = document.getElementById("toggle-chart");
@@ -53,27 +53,27 @@ const mapContainer = document.getElementById("map");
 const graphContainer = document.getElementById("combinedGraph");
 
 // Initial state: Show the chart and hide the map
-mapContainer.style.display = "none";
-graphContainer.style.display = "block";
+mapContainer.style.display = 'none';
+graphContainer.style.display = 'block';
 
-toggleChartButton.addEventListener("click", () => {
+toggleChartButton.addEventListener('click', () => {
   // Show the chart and hide the map
-  mapContainer.style.display = "none";
-  graphContainer.style.display = "block";
+  mapContainer.style.display = 'none';
+  graphContainer.style.display = 'block';
 });
 
-toggleMapButton.addEventListener("click", () => {
+toggleMapButton.addEventListener('click', () => {
   // Show the map and hide the chart
-  mapContainer.style.display = "block";
-  graphContainer.style.display = "none";
+  mapContainer.style.display = 'block';
+  graphContainer.style.display = 'none';
 });
 
 const normalizeStr = (str) => {
   return str
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "") // ignore accentuated caracters
-    .replace(/[^a-zA-Z0-9]/g, "") // ignore special caracters
-    .replaceAll(" ", "") // ignore white spaces
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '') // ignore accentuated caracters
+    .replace(/[^a-zA-Z0-9]/g, '') // ignore special caracters
+    .replaceAll(' ', '') // ignore white spaces
     .toLowerCase();
 };
 
@@ -91,7 +91,7 @@ export async function searchData({
     ? results
     : results.filter((item) => {
         name = normalizeStr(name);
-        const nameRegex = new RegExp(`^${name}`, "i");
+        const nameRegex = new RegExp(`^${name}`, 'i');
         const testedName = normalizeStr(item.name);
 
         return nameRegex.test(testedName);
@@ -105,7 +105,7 @@ export async function searchData({
     ? results
     : results.filter((item) => {
         recclass = normalizeStr(recclass);
-        const recclassRegex = new RegExp(`^${recclass}`, "i");
+        const recclassRegex = new RegExp(`^${recclass}`, 'i');
         const testedRecclass = normalizeStr(item.recclass);
         console.log(testedRecclass);
         return recclassRegex.test(testedRecclass);
