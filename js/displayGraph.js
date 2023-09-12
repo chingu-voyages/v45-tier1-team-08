@@ -89,56 +89,59 @@ function createCombinedChart(results) {
     composition
   );
 
-  // Combine the data for the chart
-  const chartData = {
-    labels: [
-      ...yearHistogramData.labels,
-      ...compositionHistogramData.labels,
-      "Total Strikes",
-    ],
-    datasets: [
-      {
-        label: "Number of Strikes by Year",
-        data: [...yearHistogramData.data, 0, 0, 0, 0], // Add empty data for composition bins
-        backgroundColor: "blue", // Adjust the color
-        borderWidth: 1,
-        type: "bar", // Bar chart for year histogram
-      },
-      {
-        label: "Number of Strikes by Composition",
-        data: [0, 0, 0, 0, ...compositionHistogramData.data], // Add empty data for year bins
-        backgroundColor: "red", // Adjust the color
-        borderWidth: 1,
-        type: "bar", // Bar chart for composition histogram
-      },
-      // {
-      //   label: "Average Mass",
-      //   data: [averageMass],
-      //   borderColor: "green", // Line color for average mass
-      //   fill: false,
-      //   type: "line", // Line chart for average mass
-      // },
-      // {
-      //   label: "Total Strikes",
-      //   data: [totalStrikes],
-      //   backgroundColor: "orange",
-      //   borderWidth: 1,
-      //   type: "bar", // Bar chart for
-      // },
-    ],
-  };
-
-  // Create a combined chart
-  const ctx = document.getElementById("combinedGraph").getContext("2d");
-  const combinedChart = new Chart(ctx, {
+  // Create a chart for strikes by year
+  const yearCtx = document.getElementById("yearGraph").getContext("2d");
+  const yearChart = new Chart(yearCtx, {
     type: "bar",
-    data: chartData,
+    data: {
+      labels: yearHistogramData.labels,
+      datasets: [
+        {
+          label: "Number of Strikes by Year",
+          data: yearHistogramData.data,
+          backgroundColor: "blue", // Adjust the color
+          borderWidth: 1,
+        },
+      ],
+    },
     options: {
       scales: {
         x: {
           title: {
             display: true,
-            text: "Metric",
+            text: "Year",
+          },
+        },
+        y: {
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: "Value",
+          },
+        },
+      },
+    },
+  });
+  const strikeCtx = document.getElementById("strikeGraph").getContext("2d");
+  const strikeChart = new Chart(strikeCtx, {
+    type: "bar",
+    data: {
+      labels: compositionHistogramData.labels,
+      datasets: [
+        {
+          label: "Number of Strikes by Composition",
+          data: compositionHistogramData.data,
+          backgroundColor: "red", // Adjust the color
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: "Composition",
           },
         },
         y: {
