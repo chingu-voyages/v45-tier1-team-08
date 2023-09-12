@@ -93,7 +93,6 @@ ul {
 
 #meteor {
   font-size: 78px;
-  margin-top: 2700px;
 }
 #nav1 {
   display: flex;
@@ -133,14 +132,6 @@ ul {
 p {
   font-size: 1.5em;
 }
-h1,
-h2,
-h3 {
-  padding-top: 1000px;
-}
-main div {
-  margin-bottom: 500px;
-}
 
 .white {
   color: white !important;
@@ -163,7 +154,6 @@ html {
 @media (max-width: 425px) {
   #meteor {
     font-size: 2em;
-    padding-top: 3700px;
   }
   nav div {
     display: flex;
@@ -259,45 +249,33 @@ html {
   clear: both;
 }
 
-
-
-
-
 /* ==========================================================================
      Navbar
    ========================================================================== */
-  
-  
-  
-   .navbar li {
-    display: inline-flex;
-    margin-left: 50px;
-    
-    
 
-  }
-    
+.navbar li {
+  display: inline-flex;
+  margin-left: 50px;
+}
+
 /* ==========================================================================
      Footer
    ========================================================================== */
-    
-  .footer-basic {
-    position: relative;
-    top: 40%;
-    padding-right: 30px;
-    background: rgba(76, 175, 80, 0.1);
-    text-align: center;
-    color: rgb(134, 82, 225);
-  
-  }
-   
-  .footer-basic li {
-   display: inline-flex;
-   padding-top: 20px;
-   margin-left: 20px;
- 
-  }
 
+.footer-basic {
+  position: relative;
+  top: 40%;
+  padding-right: 30px;
+  background: rgba(76, 175, 80, 0.1);
+  text-align: center;
+  color: rgb(134, 82, 225);
+}
+
+.footer-basic li {
+  display: inline-flex;
+  padding-top: 20px;
+  margin-left: 20px;
+}
 
 /* ==========================================================================
    EXAMPLE Media Queries for Responsive Design.
@@ -390,3 +368,267 @@ html {
     page-break-after: avoid;
   }
 }
+main {
+  margin-top: 300px;
+}
+
+h1 {
+  font-size: 78px;
+  text-align: center;
+  color: #fff !important;
+}
+
+.content-slider {
+  width: 100%;
+  height: 360px;
+  color: #fff !important;
+}
+
+.slider {
+  height: 320px;
+  width: 680px;
+  margin: 40px auto 0;
+  overflow: visible;
+  position: relative;
+}
+
+.mask {
+  overflow: hidden;
+  height: 320px;
+}
+
+.slider ul {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.slider li {
+  width: 680px;
+  height: 320px;
+  position: absolute;
+  top: -325px;
+  list-style: none;
+}
+
+.slider .quote {
+  font-size: 20px;
+  font-style: italic;
+}
+
+.slider .source {
+  font-size: 20px;
+  text-align: right;
+}
+
+.slider li.anim1 {
+  animation: cycle 25s linear infinite;
+}
+
+.slider li.anim2 {
+  animation: cycle2 25s linear infinite;
+}
+
+.slider li.anim3 {
+  animation: cycle3 25s linear infinite;
+}
+
+/* .slider li.anim4 {
+  animation: cycle4 25s linear infinite;
+}
+
+.slider li.anim5 {
+  animation: cycle5 25s linear infinite;
+} */
+
+.slider:hover li {
+  animation-play-state: paused;
+}
+
+@keyframes cycle {
+  0% {
+    top: 0px;
+  }
+  4% {
+    top: 0px;
+  }
+  16% {
+    top: 0px;
+    opacity: 1;
+    z-index: 0;
+  }
+  20% {
+    top: 325px;
+    opacity: 0;
+    z-index: 0;
+  }
+  21% {
+    top: -325px;
+    opacity: 0;
+    z-index: -1;
+  }
+  50% {
+    top: -325px;
+    opacity: 0;
+    z-index: -1;
+  }
+  92% {
+    top: -325px;
+    opacity: 0;
+    z-index: 0;
+  }
+  96% {
+    top: -325px;
+    opacity: 0;
+  }
+  100% {
+    top: 0px;
+    opacity: 1;
+  }
+}
+
+@keyframes cycle2 {
+  0% {
+    top: -325px;
+    opacity: 0;
+  }
+  16% {
+    top: -325px;
+    opacity: 0;
+  }
+  20% {
+    top: 0px;
+    opacity: 1;
+  }
+  24% {
+    top: 0px;
+    opacity: 1;
+  }
+  36% {
+    top: 0px;
+    opacity: 1;
+    z-index: 0;
+  }
+  40% {
+    top: 325px;
+    opacity: 0;
+    z-index: 0;
+  }
+  41% {
+    top: -325px;
+    opacity: 0;
+    z-index: -1;
+  }
+  100% {
+    top: -325px;
+    opacity: 0;
+    z-index: -1;
+  }
+}
+
+@keyframes cycle3 {
+  0% {
+    top: -325px;
+    opacity: 0;
+  }
+  36% {
+    top: -325px;
+    opacity: 0;
+  }
+  40% {
+    top: 0px;
+    opacity: 1;
+  }
+  44% {
+    top: 0px;
+    opacity: 1;
+  }
+  56% {
+    top: 0px;
+    opacity: 1;
+    z-index: 0;
+  }
+  60% {
+    top: 325px;
+    opacity: 0;
+    z-index: 0;
+  }
+  61% {
+    top: -325px;
+    opacity: 0;
+    z-index: -1;
+  }
+  100% {
+    top: -325px;
+    opacity: 0;
+    z-index: -1;
+  }
+}
+
+/* @keyframes cycle4 {
+  0% {
+    top: -325px;
+    opacity: 0;
+  }
+  56% {
+    top: -325px;
+    opacity: 0;
+  }
+  60% {
+    top: 0px;
+    opacity: 1;
+  }
+  64% {
+    top: 0px;
+    opacity: 1;
+  }
+  76% {
+    top: 0px;
+    opacity: 1;
+    z-index: 0;
+  }
+  80% {
+    top: 325px;
+    opacity: 0;
+    z-index: 0;
+  }
+  81% {
+    top: -325px;
+    opacity: 0;
+    z-index: -1;
+  }
+  100% {
+    top: -325px;
+    opacity: 0;
+    z-index: -1;
+  }
+}
+
+@keyframes cycle5 {
+  0% {
+    top: -325px;
+    opacity: 0;
+  }
+  76% {
+    top: -325px;
+    opacity: 0;
+  }
+  80% {
+    top: 0px;
+    opacity: 1;
+  }
+  84% {
+    top: 0px;
+    opacity: 1;
+  }
+  96% {
+    top: 0px;
+    opacity: 1;
+    z-index: 0;
+  }
+  100% {
+    top: 325px;
+    opacity: 0;
+    z-index: 0;
+  } 
+}*/
