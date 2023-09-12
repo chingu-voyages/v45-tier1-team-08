@@ -3,6 +3,7 @@ import { createCombinedChart } from "./displayGraph.js";
 import { data } from "/Team_Docs/Meteorite_Landings.js";
 import { makeTable } from "./main.js";
 
+
 // const searchButtons = document.getElementsByClassName("searchBtn");
 const searchTerms = document.getElementsByClassName("searchTerm");
 const searchButton = document.getElementById("search-button");
@@ -10,7 +11,7 @@ const resetButton = document.getElementById("reset-button");
 
 createCombinedChart(data);
 displayMap(data); // initialize map with all results at first.
-makeTable(data.slice(0, 100)); // initialize table with some results at first.
+makeTable(data); // initialize table with some results at first.
 
 function fetchData(e) {
   e.preventDefault();
@@ -29,7 +30,7 @@ function fetchData(e) {
   searchData(formattedSearchData).then((results) => {
     createCombinedChart(results);
     displayMap(results);
-    makeTable(results);
+    updateTable(results);
   });
 }
 
@@ -39,7 +40,7 @@ export function resetFunction(e) {
     elem.value = "";
   });
   displayMap(data); // reinitialize map with all results at first.
-  makeTable(data.slice(0, 100)); // reinitialize table with some results at first.
+  updateTable(data); // reinitialize table with some results at first.
 }
 
 searchButton.addEventListener("click", fetchData);
@@ -50,6 +51,7 @@ const toggleChartButton = document.getElementById("toggle-chart");
 const toggleMapButton = document.getElementById("toggle-map");
 const mapContainer = document.getElementById("map");
 const graphContainer = document.getElementById("graph-container");
+
 
 // Initial state: Show the chart and hide the map
 mapContainer.style.display = "none";
