@@ -90,6 +90,7 @@ textarea {
 ul {
   list-style-type: none;
 }
+
 #meteor {
   font-size: 78px;
   margin-top: 2700px;
@@ -123,10 +124,12 @@ ul {
   z-index: -1;
   position: fixed;
 }
+
 #nav1 {
   background: rgba(76, 175, 80, 0.1);
   color: white;
 }
+
 p {
   font-size: 1.5em;
 }
@@ -138,18 +141,22 @@ h3 {
 main div {
   margin-bottom: 500px;
 }
+
 .white {
   color: white !important;
 }
+
 .yellow {
   color: rgb(255, 255, 173) !important;
 }
+
 body,
 html {
   margin: 0;
   padding: 0;
   height: 100vh;
 }
+
 * {
   box-sizing: border-box;
 }
