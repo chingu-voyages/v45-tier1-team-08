@@ -1,7 +1,7 @@
 import { displayMap } from "./displayMap.js";
 import { createCombinedChart } from "./displayGraph.js";
 import { data } from "/Team_Docs/Meteorite_Landings.js";
-import { makeTable } from "./main.js";
+import { makeTable, updateTable } from "./main.js";
 
 
 // const searchButtons = document.getElementsByClassName("searchBtn");
@@ -40,7 +40,8 @@ export function resetFunction(e) {
     elem.value = "";
   });
   displayMap(data); // reinitialize map with all results at first.
-  updateTable(data); // reinitialize table with some results at first.
+  updateTable( data ); // reinitialize table with some results at first.
+  createCombinedChart(data);
 }
 
 searchButton.addEventListener("click", fetchData);
