@@ -93,6 +93,23 @@ ul {
 
 #meteor {
   font-size: 78px;
+  margin-top: 2700px;
+}
+#nav1 {
+  display: flex;
+  flex-direction: row;
+  top: 0;
+  position: fixed;
+  width: 40%;
+}
+@media (max-width: 1440px) {
+  #nav1 {
+    display: flex;
+    flex-direction: row;
+    top: 0;
+    position: fixed;
+    width: 90%;
+  }
 }
 
 #background-video {
@@ -105,11 +122,24 @@ ul {
   top: 0;
   bottom: 0;
   z-index: -1;
+  position: fixed;
 }
 
 #nav1 {
   background: rgba(76, 175, 80, 0.1);
   color: white;
+}
+
+p {
+  font-size: 1.5em;
+}
+h1,
+h2,
+h3 {
+  padding-top: 1000px;
+}
+main div {
+  margin-bottom: 500px;
 }
 
 .white {
@@ -130,7 +160,22 @@ html {
 * {
   box-sizing: border-box;
 }
-
+@media (max-width: 425px) {
+  #meteor {
+    font-size: 2em;
+    padding-top: 3700px;
+  }
+  nav div {
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    position: fixed;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+  }
+}
 
 /* ==========================================================================
    Helper classes
@@ -214,6 +259,46 @@ html {
   clear: both;
 }
 
+
+
+
+
+/* ==========================================================================
+     Navbar
+   ========================================================================== */
+  
+  
+  
+   .navbar li {
+    display: inline-flex;
+    margin-left: 50px;
+    
+    
+
+  }
+    
+/* ==========================================================================
+     Footer
+   ========================================================================== */
+    
+  .footer-basic {
+    position: relative;
+    top: 40%;
+    padding-right: 30px;
+    background: rgba(76, 175, 80, 0.1);
+    text-align: center;
+    color: rgb(134, 82, 225);
+  
+  }
+   
+  .footer-basic li {
+   display: inline-flex;
+   padding-top: 20px;
+   margin-left: 20px;
+ 
+  }
+
+
 /* ==========================================================================
    EXAMPLE Media Queries for Responsive Design.
    These examples override the primary ('mobile first') styles.
@@ -225,9 +310,9 @@ html {
 }
 
 @media print,
-(-webkit-min-device-pixel-ratio: 1.25),
-(min-resolution: 1.25dppx),
-(min-resolution: 120dpi) {
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 1.25dppx),
+  (min-resolution: 120dpi) {
   /* Style adjustments for high resolution devices */
 }
 
@@ -238,7 +323,6 @@ html {
    ========================================================================== */
 
 @media print {
-
   *,
   *::before,
   *::after {
