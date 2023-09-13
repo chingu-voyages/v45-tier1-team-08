@@ -2,7 +2,7 @@ import { displayMap } from "./displayMap.js";
 import { createCombinedChart } from "./displayGraph.js";
 import { data } from "/Team_Docs/Meteorite_Landings.js";
 import { makeTable } from "./main.js";
-
+import { updateTable } from "./main.js";
 
 // const searchButtons = document.getElementsByClassName("searchBtn");
 const searchTerms = document.getElementsByClassName("searchTerm");
@@ -39,6 +39,7 @@ export function resetFunction(e) {
   Array.from(searchTerms).map((elem) => {
     elem.value = "";
   });
+  createCombinedChart(data);
   displayMap(data); // reinitialize map with all results at first.
   updateTable(data); // reinitialize table with some results at first.
 }
@@ -51,7 +52,6 @@ const toggleChartButton = document.getElementById("toggle-chart");
 const toggleMapButton = document.getElementById("toggle-map");
 const mapContainer = document.getElementById("map");
 const graphContainer = document.getElementById("graph-container");
-
 
 // Initial state: Show the chart and hide the map
 mapContainer.style.display = "none";

@@ -1,4 +1,4 @@
-/*! HTML5 Boilerplate v8.0.0 | MIT License | https://html5boilerplate.com/ */
+! HTML5 Boilerplate v8.0.0 | MIT License | https: //html5boilerplate.com/
 
 /* main.css 2.1.0 | MIT License | https://github.com/h5bp/main.css#readme */
 /*
@@ -95,6 +95,7 @@ ul {
   font-size: 78px;
   margin-top: 2700px;
 }
+
 #nav1 {
   display: flex;
   flex-direction: row;
@@ -102,6 +103,7 @@ ul {
   position: fixed;
   width: 40%;
 }
+
 @media (max-width: 1440px) {
   #nav1 {
     display: flex;
@@ -133,11 +135,13 @@ ul {
 p {
   font-size: 1.5em;
 }
+
 h1,
 h2,
 h3 {
   padding-top: 1000px;
 }
+
 main div {
   margin-bottom: 500px;
 }
@@ -160,17 +164,20 @@ html {
 * {
   box-sizing: border-box;
 }
+
 @media (max-width: 425px) {
   #meteor {
     font-size: 2em;
     padding-top: 3700px;
   }
+
   nav div {
     display: flex;
     flex-direction: column;
     top: 0;
     position: fixed;
   }
+
   ul {
     display: flex;
     flex-direction: column;
@@ -266,37 +273,37 @@ html {
 /* ==========================================================================
      Navbar
    ========================================================================== */
-  
-  
-  
-   .navbar li {
-    display: inline-flex;
-    margin-left: 50px;
-    
-    
 
-  }
-    
+
+
+.navbar li {
+  display: inline-flex;
+  margin-left: 50px;
+
+
+
+}
+
 /* ==========================================================================
      Footer
    ========================================================================== */
-    
-  .footer-basic {
-    position: relative;
-    top: 40%;
-    padding-right: 30px;
-    background: rgba(76, 175, 80, 0.1);
-    text-align: center;
-    color: rgb(134, 82, 225);
-  
-  }
-   
-  .footer-basic li {
-   display: inline-flex;
-   padding-top: 20px;
-   margin-left: 20px;
- 
-  }
+
+.footer-basic {
+  position: relative;
+  top: 40%;
+  padding-right: 30px;
+  background: rgba(76, 175, 80, 0.1);
+  text-align: center;
+  color: rgb(134, 82, 225);
+
+}
+
+.footer-basic li {
+  display: inline-flex;
+  padding-top: 20px;
+  margin-left: 20px;
+
+}
 
 
 /* ==========================================================================
@@ -310,9 +317,9 @@ html {
 }
 
 @media print,
-  (-webkit-min-device-pixel-ratio: 1.25),
-  (min-resolution: 1.25dppx),
-  (min-resolution: 120dpi) {
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 1.25dppx),
+(min-resolution: 120dpi) {
   /* Style adjustments for high resolution devices */
 }
 
@@ -323,6 +330,7 @@ html {
    ========================================================================== */
 
 @media print {
+
   *,
   *::before,
   *::after {
