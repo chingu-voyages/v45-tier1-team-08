@@ -90,6 +90,7 @@ textarea {
 ul {
   list-style-type: none;
 }
+
 #meteor {
   font-size: 78px;
 }
@@ -104,23 +105,29 @@ ul {
   top: 0;
   bottom: 0;
   z-index: -1;
+  position: fixed;
 }
+
 #nav1 {
   background: rgba(76, 175, 80, 0.1);
   color: white;
 }
+
 .white {
   color: white !important;
 }
+
 .yellow {
   color: rgb(255, 255, 173) !important;
 }
+
 body,
 html {
   margin: 0;
   padding: 0;
   height: 100vh;
 }
+
 * {
   box-sizing: border-box;
 }
@@ -206,6 +213,46 @@ html {
 .clearfix::after {
   clear: both;
 }
+
+
+
+
+
+/* ==========================================================================
+     Navbar
+   ========================================================================== */
+  
+  
+  
+   .navbar li {
+    display: inline-flex;
+    margin-left: 50px;
+    
+    
+
+  }
+    
+/* ==========================================================================
+     Footer
+   ========================================================================== */
+    
+  .footer-basic {
+    position: relative;
+    top: 40%;
+    padding-right: 30px;
+    background: rgba(76, 175, 80, 0.1);
+    text-align: center;
+    color: rgb(134, 82, 225);
+  
+  }
+   
+  .footer-basic li {
+   display: inline-flex;
+   padding-top: 20px;
+   margin-left: 20px;
+ 
+  }
+
 
 /* ==========================================================================
    EXAMPLE Media Queries for Responsive Design.

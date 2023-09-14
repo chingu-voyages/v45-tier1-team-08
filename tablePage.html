@@ -17,8 +17,13 @@
 
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/main.css" />
+<<<<<<< HEAD
     <link rel="stylesheet" href="css/searchBox.css" />
     <link rel="stylesheet" href="css/index.css">
+=======
+    <link rel="stylesheet" href="css/tablePage.css" />
+
+>>>>>>> development
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -37,7 +42,7 @@
           <ul>
             <li><a href="https://www.chingu.io/" target="_blank">Chingu</a></li>
             <li><a href="index.html">Home</a></li>
-            <li><a href="aboutPage.html">About</a></li>
+            <li><a href="https://github.com/chingu-voyages/v45-tier1-team-08/blob/main/README.md" target="_blank">About</a></li>
             <li><a href="tablePage.html">Data</a></li>
             <li><a href="contactPage.html">Contact</a></li>
             <button id="dark-mode-toggle" class="dark-mode-toggle">
@@ -49,147 +54,169 @@
     </header>
 
     <hr />
+    <main>
+      <!-- 2) Search bar: -->
+      <section class="section">
+        <div class="search-tool">
+          <!-- 2.2) Search tool bars: -->
+          <div class="search-tool__bar">
+            <div class="search-tool__forms">
+              <form class="search-tool__form">
+                <input
+                  class="searchTerm"
+                  placeholder="Name…"
+                  autocomplete="off"
+                />
+                <!-- <div class="search-tool__reset">
+                  <img class="searchBtn" src="img/icons8-reset-48.png" alt="" />
+                </div> -->
+                <ul class="suggestionBox"></ul>
+              </form>
 
-    <!-- 2) Search bar: -->
-    <section class="section">
-      <div class="search-tool">
-        <!-- 2.1) Search selection buttons: -->
-        <div class="search-tool__selection">
-          <div>
-            <input
-              type="checkbox"
-              id="name-checkbox"
-              name="selection"
-              value="name"
-              checked
-            />
-            <label for="name-checkbox">Name</label><br />
+              <form class="search-tool__form">
+                <input
+                  class="searchTerm"
+                  type="number"
+                  min="1880"
+                  placeholder="Year strike…"
+                  autocomplete="off"
+                />
+                <!-- <div class="search-tool__reset">
+                  <img class="searchBtn"  src="img/icons8-reset-48.png" alt="" />
+                </div> -->
+                <ul class="suggestionBox"></ul>
+              </form>
+
+              <form class="search-tool__form">
+                <input
+                  class="searchTerm"
+                  placeholder="Composition…"
+                  autocomplete="off"
+                />
+                <!-- <div class="search-tool__reset">
+                  <img class="searchBtn"  src="img/icons8-reset-48.png" alt="" />
+                </div> -->
+                <ul class="suggestionBox"></ul>
+              </form>
+
+              <form class="search-tool__form collapsed">
+                <input
+                  class="searchTerm"
+                  type="number"
+                  min="0"
+                  placeholder="Min Mass..."
+                  autocomplete="off"
+                />
+                <!-- <div class="search-tool__reset">
+                  <img class="searchBtn"  src="img/icons8-reset-48.png" alt="" />
+                </div> -->
+                <ul class="suggestionBox"></ul>
+              </form>
+              <form class="search-tool__form collapsed">
+                <input
+                  type="number"
+                  min="0"
+                  class="searchTerm"
+                  placeholder="Max Mass..."
+                  autocomplete="off"
+                />
+                <!-- <div class="search-tool__reset">
+                  <img class="searchBtn" src="img/icons8-reset-48.png" alt="reset_img" />
+                </div> -->
+                <ul class="suggestionBox"></ul>
+              </form>
+              <div class="search-tool__buttons">
+                <button class="search-tool__form-btn" id="search-button">
+                  Search
+                </button>
+                <button class="search-tool__form-btn" id="reset-button">
+                  Reset
+                </button>
+              </div>
+            </div>
+            <hr />
+            <div class="search-tool__toggle">
+              <button id="toggle-chart">Chart View</button>
+              <button id="toggle-map">Map View</button>
+            </div>
           </div>
-          <div>
-            <input
-              type="checkbox"
-              id="yearStrike-checkbox"
-              name="selection"
-              value="yearStrike"
-            />
-            <label for="yearStrike-checkbox">Year Strike</label><br />
-          </div>
-          <div>
-            <input
-              type="checkbox"
-              id="composition-checkbox"
-              name="selection"
-              value="composition"
-            />
-            <label for="composition-checkbox">Composition</label><br />
-          </div>
-          <div>
-            <input
-              type="checkbox"
-              id="mass-checkbox"
-              name="selection"
-              value="mass"
-            />
-            <label for="mass-checkbox">Mass</label><br />
+        </div>
+
+        <hr />
+
+        <!-- 3) Result table view: -->
+        <div class="result-table">
+          <table id="showData">
+            <thead>
+              <tr class="sticky">
+                <th>Name</th>
+                <th>Year</th>
+                <th>Composition</th>
+                <th>Mass</th>
+              </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
+
+        <hr />
+
+        <!-- 4) Chart result view:  -->
+        <div class="result-chart">
+          <div id="map"></div>
+        </div>
+
+        <!-- Graph result view -->
+
+        <div class="result-graph">
+          <div id="graph">
+            <p>placeholder text</p>
           </div>
         </div>
 
-        <!-- 2.2) Search tool bars: -->
-        <div class="search-tool__bar">
-          <div class="search-tool__forms">
-            <form class="search-tool__form">
-              <input
-                class="searchTerm"
-                placeholder="Name…"
-                autocomplete="off"
-              />
-              <input type="submit" class="searchBtn" value="GO" />
-              <ul class="suggestionBox"></ul>
-            </form>
-
-            <form class="search-tool__form">
-              <input
-                class="searchTerm"
-                placeholder="Year strike…"
-                autocomplete="off"
-              />
-              <input type="submit" class="searchBtn" value="GO" />
-              <ul class="suggestionBox"></ul>
-            </form>
-
-            <form class="search-tool__form">
-              <input
-                class="searchTerm"
-                placeholder="Composition…"
-                autocomplete="off"
-              />
-              <input type="submit" class="searchBtn" value="GO" />
-              <ul class="suggestionBox"></ul>
-            </form>
-
-            <form class="search-tool__form collapsed">
-              <input
-                class="searchTerm"
-                placeholder="Mass…"
-                autocomplete="off"
-              />
-              <input type="submit" class="searchBtn" value="GO" />
-              <ul class="suggestionBox"></ul>
-            </form>
+        <!-- 5) Result navigation bar: -->
+        <div class="result-tool-bar">
+          <div class="result-tool-bar__previous">
+            <button class="result-tool-bar__previous btn">Previous</button>
           </div>
-          <hr />
-          <div class="search-tool__toggle">
-            <button class="search-tool__toggle btn">Chart View</button>
+          <div class="result-tool-bar__next">
+            <button class="result-tool-bar__next btn">Next</button>
+          </div>
+          <div class="result-tool-bar__clear">
+            <button class="result-tool-bar__clear btn">Clear</button>
+          </div>
+          <div class="result-tool-bar__desc">
+            <p class="result-tool-bar__desc p">
+              Showing meteorite strikes
+              <span class="result-tool-bar__desc--shown-strikes"
+                >[nbr of strikes on screen]</span
+              >
+              out of
+              <span class="result-tool-bar__desc--total-strikes"
+                >[total nbr of strikes]</span
+              >
+            </p>
           </div>
         </div>
-      </div>
+      </section>
+    </main>
+    <div class="footer-basic">
+      <footer>
+        <ul>
+          <span>Code With Us By</span>
+          <span>
+            <a href="https://github.com/Emimint" target="blank">Emimint</a>,
+            <a href="https://github.com/cmade" target="blank">Clive</a>,
+            <a href="https://github.com/goodman2814" target="blank">Alex</a>,
+            <a href="https://github.com/kingzLoFitness" target="blank">kingzLoFitness</a>,
+            <a href="https://github.com/MrBarker47" target="blank">Jamaal</a>
+          </span>
 
-      <hr />
-
-      <!-- 3) Result table view: -->
-      <div class="result-table">
-        <table id="showData">
-          <thead></thead>
-          <tbody></tbody>
-        </table>
-      </div>
-
-      <hr />
-
-      <!-- 4) Chart result view:  -->
-      <div class="result-chart">
-        <div
-        id="map"
-        style="width: 90vh; height: 80vh; background-color: blanchedalmond"
-      ></div>
-      </div>
-
-      <!-- 5) Result navigation bar: -->
-      <div class="result-tool-bar">
-        <div class="result-tool-bar__previous">
-          <button class="result-tool-bar__previous btn">Previous</button>
-        </div>
-        <div class="result-tool-bar__next">
-          <button class="result-tool-bar__next btn">Next</button>
-        </div>
-        <div class="result-tool-bar__clear">
-          <button class="result-tool-bar__clear btn">Clear</button>
-        </div>
-        <div class="result-tool-bar__desc">
-          <p class="result-tool-bar__desc p">
-            Showing meteorite strikes
-            <span class="result-tool-bar__desc--shown-strikes"
-              >[nbr of strikes on screen]</span
-            >
-            out of
-            <span class="result-tool-bar__desc--total-strikes"
-              >[total nbr of strikes]</span
-            >
-          </p>
-        </div>
-      </div>
-    </section>
-
+          <hr class="footer-hr">
+          <span>&copy 2023 Inspired by Chingu. Built for Voyage 45</span>
+        </ul>
+      </footer>
+    </div>
     <script src="js/vendor/modernizr-3.11.2.min.js"></script>
     <script src="js/plugins.js"></script>
     <!-- Load d3.js and the geo projection plugin -->
@@ -201,6 +228,7 @@
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin=""
     ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="module" src="js/searchData.js"></script>
     <script type="module" src="js/displayMap.js"></script>
     <script type="module" src="js/main.js"></script>
