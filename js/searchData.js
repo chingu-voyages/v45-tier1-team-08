@@ -1,12 +1,15 @@
 import { displayMap } from "./displayMap.js";
+import { createCombinedChart } from "./displayGraph.js";
 import { data } from "/Team_Docs/Meteorite_Landings.js";
-import { makeTable, updateTable } from "./main.js";
+import { makeTable } from "./main.js";
+import { updateTable } from "./main.js";
 
 // const searchButtons = document.getElementsByClassName("searchBtn");
 const searchTerms = document.getElementsByClassName("searchTerm");
 const searchButton = document.getElementById("search-button");
 const resetButton = document.getElementById("reset-button");
 
+createCombinedChart(data);
 displayMap(data); // initialize map with all results at first.
 makeTable(data); // initialize table with some results at first.
 
@@ -25,6 +28,7 @@ function fetchData(e) {
     maxMassRange: linkData[4],
   };
   searchData(formattedSearchData).then((results) => {
+    createCombinedChart(results);
     displayMap(results);
     updateTable(results);
   });
@@ -35,6 +39,7 @@ export function resetFunction(e) {
   Array.from(searchTerms).map((elem) => {
     elem.value = "";
   });
+  createCombinedChart(data);
   displayMap(data); // reinitialize map with all results at first.
   updateTable(data); // reinitialize table with some results at first.
 }
@@ -46,7 +51,7 @@ resetButton.addEventListener("click", resetFunction);
 const toggleChartButton = document.getElementById("toggle-chart");
 const toggleMapButton = document.getElementById("toggle-map");
 const mapContainer = document.getElementById("map");
-const graphContainer = document.getElementById("graph");
+const graphContainer = document.getElementById("graph-container");
 
 // Initial state: Show the chart and hide the map
 mapContainer.style.display = "none";
@@ -103,7 +108,7 @@ export async function searchData({
         recclass = normalizeStr(recclass);
         const recclassRegex = new RegExp(`^${recclass}`, "i");
         const testedRecclass = normalizeStr(item.recclass);
-
+        console.log(testedRecclass);
         return recclassRegex.test(testedRecclass);
       });
 

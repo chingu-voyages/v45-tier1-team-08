@@ -14,11 +14,19 @@
     <link rel="manifest" href="site.webmanifest" />
     <link rel="apple-touch-icon" href="icon.png" />
     <!-- Place favicon.ico in the root directory -->
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css"
+    />
     <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/main.css" />
+    <!-- <link rel="stylesheet" href="css/main.css" /> -->
     <link rel="stylesheet" href="css/tablePage.css" />
 
     <link
@@ -39,7 +47,13 @@
           <ul>
             <li><a href="https://www.chingu.io/" target="_blank">Chingu</a></li>
             <li><a href="index.html">Home</a></li>
-            <li><a href="https://github.com/chingu-voyages/v45-tier1-team-08/blob/main/README.md" target="_blank">About</a></li>
+            <li>
+              <a
+                href="https://github.com/chingu-voyages/v45-tier1-team-08/blob/main/README.md"
+                target="_blank"
+                >About</a
+              >
+            </li>
             <li><a href="tablePage.html">Data</a></li>
             <li><a href="contactPage.html">Contact</a></li>
           </ul>
@@ -57,6 +71,7 @@
             <div class="search-tool__forms">
               <form class="search-tool__form">
                 <input
+                  id="compositionInput"
                   class="searchTerm"
                   placeholder="Name…"
                   autocomplete="off"
@@ -70,6 +85,7 @@
               <form class="search-tool__form">
                 <input
                   class="searchTerm"
+                  id="compositionInput"
                   type="number"
                   min="1880"
                   placeholder="Year strike…"
@@ -84,6 +100,7 @@
               <form class="search-tool__form">
                 <input
                   class="searchTerm"
+                  id="compositionInput"
                   placeholder="Composition…"
                   autocomplete="off"
                 />
@@ -96,6 +113,7 @@
               <form class="search-tool__form collapsed">
                 <input
                   class="searchTerm"
+                  id="compositionInput"
                   type="number"
                   min="0"
                   placeholder="Min Mass..."
@@ -111,6 +129,7 @@
                   type="number"
                   min="0"
                   class="searchTerm"
+                  id="compositionInput"
                   placeholder="Max Mass..."
                   autocomplete="off"
                 />
@@ -161,36 +180,21 @@
         </div>
 
         <!-- Graph result view -->
-
-        <div class="result-graph">
-          <div id="graph">
-            <p>placeholder text</p>
-          </div>
+        <div id="graph-container">
+          <canvas
+            id="yearGraph"
+            style="width: 100vh; max-width: 700px"
+          ></canvas>
+          <canvas
+            id="strikeGraph"
+            style="width: 100vh; max-width: 700px"
+          ></canvas>
         </div>
 
         <!-- 5) Result navigation bar: -->
-        <div class="result-tool-bar">
-          <div class="result-tool-bar__previous">
-            <button class="result-tool-bar__previous btn">Previous</button>
-          </div>
-          <div class="result-tool-bar__next">
-            <button class="result-tool-bar__next btn">Next</button>
-          </div>
-          <div class="result-tool-bar__clear">
-            <button class="result-tool-bar__clear btn">Clear</button>
-          </div>
-          <div class="result-tool-bar__desc">
-            <p class="result-tool-bar__desc p">
-              Showing meteorite strikes
-              <span class="result-tool-bar__desc--shown-strikes"
-                >[nbr of strikes on screen]</span
-              >
-              out of
-              <span class="result-tool-bar__desc--total-strikes"
-                >[total nbr of strikes]</span
-              >
-            </p>
-          </div>
+        <div class="resultNum">
+          <span id="totalS"></span>
+          <span id="avgMass"></span>
         </div>
       </section>
     </main>
@@ -202,11 +206,13 @@
             <a href="https://github.com/Emimint" target="blank">Emimint</a>,
             <a href="https://github.com/cmade" target="blank">Clive</a>,
             <a href="https://github.com/goodman2814" target="blank">Alex</a>,
-            <a href="https://github.com/kingzLoFitness" target="blank">kingzLoFitness</a>,
+            <a href="https://github.com/kingzLoFitness" target="blank"
+              >kingzLoFitness</a
+            >,
             <a href="https://github.com/MrBarker47" target="blank">Jamaal</a>
           </span>
 
-          <hr class="footer-hr">
+          <hr class="footer-hr" />
           <span>&copy 2023 Inspired by Chingu. Built for Voyage 45</span>
         </ul>
       </footer>
@@ -222,14 +228,24 @@
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin=""
     ></script>
+    <!-- Load Char.js script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script type="module" src="js/searchData.js"></script>
     <script type="module" src="js/displayMap.js"></script>
     <script type="module" src="js/main.js"></script>
-    <script type="module" src="Team_Docs/testData.js"></script>
+    <script type="module" src="js/displayGraph.js"></script>
 
     <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
     <script>

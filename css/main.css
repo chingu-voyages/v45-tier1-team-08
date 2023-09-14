@@ -1,4 +1,4 @@
-/*! HTML5 Boilerplate v8.0.0 | MIT License | https://html5boilerplate.com/ */
+! HTML5 Boilerplate v8.0.0 | MIT License | https: //html5boilerplate.com/
 
 /* main.css 2.1.0 | MIT License | https://github.com/h5bp/main.css#readme */
 /*
@@ -103,7 +103,9 @@ ul {
   width: 40%;
 }
 
-@media (max-width: 2602px) {
+
+
+@media (max-width: 1440px) {
   #nav1 {
     width: 90%;
   }
@@ -157,12 +159,14 @@ html {
   #nav1 {
     width: 90%;
   }
+
   nav div {
     display: flex;
     flex-direction: column;
     top: 0;
     position: fixed;
   }
+
   ul {
     display: flex;
     flex-direction: column;
@@ -272,8 +276,6 @@ html {
 }
 
 /* ==========================================================================
-       Footer
-     ========================================================================== */
 
 .footer-basic {
   position: relative;
@@ -301,10 +303,11 @@ html {
 }
 
 @media print,
-  (-webkit-min-device-pixel-ratio: 1.25),
-  (min-resolution: 1.25dppx),
-  (min-resolution: 120dpi) {
-  /* Style adjustments for high-resolution devices */
+
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 1.25dppx),
+(min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
 }
 
 /* ==========================================================================
@@ -314,6 +317,7 @@ html {
      ========================================================================== */
 
 @media print {
+
   *,
   *::before,
   *::after {
@@ -577,71 +581,3 @@ h1 {
     z-index: -1;
   }
 }
-
-/* @keyframes cycle4 {
-  0% {
-    top: -325px;
-    opacity: 0;
-  }
-  56% {
-    top: -325px;
-    opacity: 0;
-  }
-  60% {
-    top: 0px;
-    opacity: 1;
-  }
-  64% {
-    top: 0px;
-    opacity: 1;
-  }
-  76% {
-    top: 0px;
-    opacity: 1;
-    z-index: 0;
-  }
-  80% {
-    top: 325px;
-    opacity: 0;
-    z-index: 0;
-  }
-  81% {
-    top: -325px;
-    opacity: 0;
-    z-index: -1;
-  }
-  100% {
-    top: -325px;
-    opacity: 0;
-    z-index: -1;
-  }
-}
-
-@keyframes cycle5 {
-  0% {
-    top: -325px;
-    opacity: 0;
-  }
-  76% {
-    top: -325px;
-    opacity: 0;
-  }
-  80% {
-    top: 0px;
-    opacity: 1;
-  }
-  84% {
-    top: 0px;
-    opacity: 1;
-  }
-  96% {
-    top: 0px;
-    opacity: 1;
-    z-index: 0;
-  }
-  100% {
-    top: 325px;
-    opacity: 0;
-    z-index: 0;
-  } 
-}*/
