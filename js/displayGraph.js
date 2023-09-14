@@ -34,30 +34,20 @@ function createYearHistogramData(data) {
 }
 
 // Function to create a composition histogram and return data
-function createCompositionHistogramData(data, composition) {
-  // Filter data based on the selected composition
-  const filteredData = data.filter(
-    (item) => item.recclass.toLowerCase() === composition.toLowerCase()
-  );
-
-  // Prepare the data for the histogram
-  const bins = [0, 0, 0, 0]; // Initialize 4 bins for the histogram
-  const values = filteredData.map((item) => item.mass_g);
-  values.forEach((value) => {
-    if (value >= 0 && value < 25) {
-      bins[0]++;
-    } else if (value >= 25 && value < 50) {
-      bins[1]++;
-    } else if (value >= 50 && value < 75) {
-      bins[2]++;
-    } else if (value >= 75) {
-      bins[3]++;
-    }
+function createCompositionHistogramData(data) {
+  // Count the number of strikes for each recclass value
+  const recclassCounts = {};
+  data.forEach((item) => {
+    const recclass = item.recclass.toLowerCase();
+    recclassCounts[recclass] = (recclassCounts[recclass] || 0) + 1;
   });
 
+  const labels = Object.keys(recclassCounts);
+  const dataPoints = Object.values(recclassCounts);
+
   return {
-    labels: ["0-24", "25-49", "50-74", "75+"],
-    data: bins,
+    labels: labels,
+    data: dataPoints,
   };
 }
 
@@ -84,10 +74,7 @@ function createCombinedChart(results) {
   const composition = results[0].recclass;
 
   // Create composition histogram data for the selected composition
-  const compositionHistogramData = createCompositionHistogramData(
-    results,
-    composition
-  );
+  const compositionHistogramData = createCompositionHistogramData(results);
 
   // Create a chart for strikes by year
   const yearCtx = document.getElementById("yearGraph").getContext("2d");
