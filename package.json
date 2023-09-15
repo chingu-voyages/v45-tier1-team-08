@@ -2,9 +2,10 @@
   "name": " ",
   "version": "0.0.1",
   "description": "",
-  "keywords": "",
+  "keywords": [],
   "license": "",
   "author": "",
+  "type": "module",
   "scripts": {
     "build": "parcel build index.html",
     "dev": "parcel index.html --open",
@@ -12,6 +13,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "parcel-bundler": "^1.12.4"
+    "parcel-bundler": "^1.8.1"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.1",
+    "chart.js": "^4.4.0"
   }
 }
