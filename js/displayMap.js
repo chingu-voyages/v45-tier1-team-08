@@ -4,15 +4,15 @@ export function displayMap(tab) {
   const searchValueList = tab;
   // Conversion of searchData results to a list of GSP coordinates:
   const resultsCoords = searchValueList
-  .filter((result) => result.GeoLocation !== "")
-  .map((result) => {
-    return { long: result.reclong, lat: result.reclat };
-  });
-  
-  console.log(resultsCoords);
+    .filter((result) => result.GeoLocation !== "")
+    .map((result) => {
+      return { long: result.reclong, lat: result.reclat };
+    });
+
+  // console.log(resultsCoords);
   // I am using this as reference for the map: https://d3-graph-gallery.com/graph/bubblemap_leaflet_basic.html
 
- if (map !== undefined && map !== null) {
+  if (map !== undefined && map !== null) {
     map.remove(); // should remove the map from UI and clean the inner children of DOM element
   }
 
