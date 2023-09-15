@@ -83,6 +83,28 @@ textarea {
   resize: vertical;
 }
 
+
+/* Footer */
+  /* Footer-basics */
+  .footer-basic {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    /* margin: 2px; */
+    text-align: center;
+    background: rgba(76, 175, 80, 0.1);
+    color: white;
+    padding-bottom: 20px;
+    color: white;
+    
+  }
+  
+  footer {
+    padding-top: 2px;
+    margin-top: 60px;
+  }
+
 /* ==========================================================================
      Author's custom styles
      ========================================================================== */
