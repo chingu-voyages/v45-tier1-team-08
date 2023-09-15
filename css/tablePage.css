@@ -151,7 +151,7 @@ body {
   height: 160px;
 }
 
-.result-table {
+/* .result-table {
   display: flex;
   width: 80%;
   height: 300px;
@@ -163,7 +163,7 @@ body {
 .result-chart {
   display: flex;
   align-items: center;
-}
+} */
 
 #map {
   width: 90vh;
@@ -286,7 +286,7 @@ body {
 /* ==========================
      Table Body
      ========================== */
-
+/* 
 table {
   width: 70%;
   margin: 20px auto;
@@ -294,9 +294,9 @@ table {
   border-collapse: collapse;
   background-color: white;
   ;
-}
+} */
 
-table,
+/* table,
 th,
 td {
   border: 1px solid black;
@@ -328,7 +328,7 @@ tr:nth-child(odd) {
 
 tr:hover {
   background-color: #fff97f;
-}
+} */
 
 
 

@@ -1,14 +1,15 @@
-import { displayMap } from './displayMap.js';
-import { data } from '/Team_Docs/Meteorite_Landings.js';
-import { makeTable } from './main.js';
+import { createCombinedChart } from "./displayGraph.js";
+import { data } from "/Team_Docs/Meteorite_Landings.js";
+import { makeTable } from "./main.js";
+import { updateTable } from "./main.js";
 
 // const searchButtons = document.getElementsByClassName("searchBtn");
-const searchTerms = document.getElementsByClassName('searchTerm');
-const searchButton = document.getElementById('search-button');
-const resetButton = document.getElementById('reset-button');
+const searchTerms = document.getElementsByClassName("searchTerm");
+const searchButton = document.getElementById("search-button");
+const resetButton = document.getElementById("reset-button");
 
-displayMap(data); // initialize map with all results at first.
-makeTable(data.slice(0, 100)); // initialize table with some results at first.
+createCombinedChart(data);
+makeTable(data); // initialize table with some results at first.
 
 function fetchData(e) {
   e.preventDefault();
@@ -25,44 +26,22 @@ function fetchData(e) {
     maxMassRange: linkData[4],
   };
   searchData(formattedSearchData).then((results) => {
-    displayMap(results);
-    makeTable(results);
+    createCombinedChart(results);
+    updateTable(results);
   });
 }
 
 export function resetFunction(e) {
   e.preventDefault();
   Array.from(searchTerms).map((elem) => {
-    elem.value = '';
+    elem.value = "";
   });
-  displayMap(data); // reinitialize map with all results at first.
-  makeTable(data.slice(0, 100)); // reinitialize table with some results at first.
+  createCombinedChart(data);
+  updateTable(data); // reinitialize table with some results at first.
 }
 
-searchButton.addEventListener('click', fetchData);
-resetButton.addEventListener('click', resetFunction);
-
-// Toggle commands
-const toggleChartButton = document.getElementById('toggle-chart');
-const toggleMapButton = document.getElementById('toggle-map');
-const mapContainer = document.getElementById('map');
-const graphContainer = document.getElementById('graph');
-
-// Initial state: Show the chart and hide the map
-mapContainer.style.display = 'none';
-graphContainer.style.display = 'block';
-
-toggleChartButton.addEventListener('click', () => {
-  // Show the chart and hide the map
-  mapContainer.style.display = 'none';
-  graphContainer.style.display = 'block';
-});
-
-toggleMapButton.addEventListener('click', () => {
-  // Show the map and hide the chart
-  mapContainer.style.display = 'block';
-  graphContainer.style.display = 'none';
-});
+searchButton.addEventListener("click", fetchData);
+resetButton.addEventListener("click", resetFunction);
 
 const normalizeStr = (str) => {
   return str
@@ -103,7 +82,7 @@ export async function searchData({
         recclass = normalizeStr(recclass);
         const recclassRegex = new RegExp(`^${recclass}`, 'i');
         const testedRecclass = normalizeStr(item.recclass);
-
+        console.log(testedRecclass);
         return recclassRegex.test(testedRecclass);
       });
 
