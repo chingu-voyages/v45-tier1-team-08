@@ -42,23 +42,36 @@
   <body>
     <!-- 1) Navigation bar: -->
     <header>
-      <div class="content-wrapper">
-        <nav class="navbar">
-          <ul>
-            <li><a href="https://www.chingu.io/" target="_blank">Chingu</a></li>
-            <li><a href="index.html">Home</a></li>
-            <li>
+      <nav class="navbar" id="nav1">
+        <div class="container-fluid">
+          <a
+            class="navbar-brand white chingu"
+            href="https://www.chingu.io/"
+            target="_blank"
+            >Chingu</a
+          >
+
+          <ul class="nav nav-underline justify-content-end">
+            <li class="p-2 nav-item">
+              <a class="nav-link active yellow" href="index.html">Home</a>
+            </li>
+            <li class="p-2 nav-item">
               <a
+                class="nav-link white"
                 href="https://github.com/chingu-voyages/v45-tier1-team-08/blob/main/README.md"
                 target="_blank"
                 >About</a
               >
             </li>
-            <li><a href="tablePage.html">Data</a></li>
-            <li><a href="contactPage.html">Contact</a></li>
+            <li class="p-2 nav-item">
+              <a class="nav-link white" href="tablePage.html">Search</a>
+            </li>
+            <li class="p-2 nav-item">
+              <a class="nav-link white" href="contactPage.html">Contact</a>
+            </li>
           </ul>
-        </nav>
-      </div>
+        </div>
+      </nav>
     </header>
 
     <hr />
