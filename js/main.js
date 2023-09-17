@@ -8,6 +8,7 @@ export function makeTable(tab) {
     Mass: data.mass_g,
   }));
 
+
   $("#showData").dataTable({
     data: rows,
     columns: [

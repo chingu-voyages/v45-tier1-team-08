@@ -45,10 +45,10 @@ resetButton.addEventListener("click", resetFunction);
 
 const normalizeStr = (str) => {
   return str
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "") // ignore accentuated caracters
-    .replace(/[^a-zA-Z0-9]/g, "") // ignore special caracters
-    .replaceAll(" ", "") // ignore white spaces
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '') // ignore accentuated caracters
+    .replace(/[^a-zA-Z0-9]/g, '') // ignore special caracters
+    .replaceAll(' ', '') // ignore white spaces
     .toLowerCase();
 };
 
@@ -66,7 +66,7 @@ export async function searchData({
     ? results
     : results.filter((item) => {
         name = normalizeStr(name);
-        const nameRegex = new RegExp(`^${name}`, "i");
+        const nameRegex = new RegExp(`^${name}`, 'i');
         const testedName = normalizeStr(item.name);
 
         return nameRegex.test(testedName);
@@ -80,7 +80,7 @@ export async function searchData({
     ? results
     : results.filter((item) => {
         recclass = normalizeStr(recclass);
-        const recclassRegex = new RegExp(`^${recclass}`, "i");
+        const recclassRegex = new RegExp(`^${recclass}`, 'i');
         const testedRecclass = normalizeStr(item.recclass);
         console.log(testedRecclass);
         return recclassRegex.test(testedRecclass);
