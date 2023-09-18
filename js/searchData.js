@@ -1,5 +1,5 @@
 import { createCombinedChart } from "./displayGraph.js";
-import { data } from "/Team_Docs/Meteorite_Landings.js";
+import { data } from "./Team_Docs/Meteorite_Landings.js";
 import { makeTable } from "./main.js";
 import { updateTable } from "./main.js";
 
